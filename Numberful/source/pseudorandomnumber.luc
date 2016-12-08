@@ -1,0 +1,28 @@
+module pseudorandomnumber (
+    input clk,  // clock
+    input rst,  // reset
+    output sixteen[16][4]
+  ) {
+
+  pn_gen pn_gen1(.clk(clk),.rst(rst));
+  pn_gen pn_gen2(.clk(clk),.rst(rst));
+  dff seed1[32](.clk(clk));
+  dff seed2[32](.clk(clk));
+  always {
+    pn_gen1.seed = seed1.q;
+    pn_gen1.next = 0;
+    
+    pn_gen2.seed = seed2.q;
+    pn_gen2.next = 0;
+    
+    if(rst){
+      seed1.d = seed1.q+1;
+      seed2.d = seed2.q+2;
+    }
+    
+    sixteen = {pn_gen1.num[3-:4],pn_gen1.num[7-:4],pn_gen1.num[11-:4],pn_gen1.num[15-:4],
+                pn_gen1.num[19-:4],pn_gen1.num[23-:4],pn_gen1.num[27-:4],pn_gen1.num[31-:4],
+                pn_gen2.num[3-:4],pn_gen2.num[7-:4],pn_gen2.num[11-:4],pn_gen2.num[15-:4],
+                pn_gen2.num[19-:4],pn_gen2.num[23-:4],pn_gen2.num[27-:4],pn_gen2.num[31-:4]};
+  }
+}
