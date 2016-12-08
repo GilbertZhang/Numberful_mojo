@@ -2,7 +2,7 @@ Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.06 secs
  
 --> Reading design: mojo_top_0.prj
@@ -53,22 +53,32 @@ Netlist Hierarchy                  : rebuilt
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pipeline_21.v" into library work
+Parsing module <pipeline_21>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/seven_seg_6.v" into library work
 Parsing module <seven_seg_6>.
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/register_11.v" into library work
+Parsing module <register_11>.
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/register_10.v" into library work
+Parsing module <register_10>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pn_gen_8.v" into library work
 Parsing module <pn_gen_8>.
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/edge_detector_13.v" into library work
+Parsing module <edge_detector_13>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/decoder_7.v" into library work
 Parsing module <decoder_7>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/counter_5.v" into library work
 Parsing module <counter_5>.
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/button_conditioner_14.v" into library work
+Parsing module <button_conditioner_14>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/reset_conditioner_1.v" into library work
 Parsing module <reset_conditioner_1>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pseudorandomnumber_3.v" into library work
 Parsing module <pseudorandomnumber_3>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/multi_seven_seg_2.v" into library work
 Parsing module <multi_seven_seg_2>.
-Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/edge_detector_4.v" into library work
-Parsing module <edge_detector_4>.
+Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/addgame_4.v" into library work
+Parsing module <addgame_4>.
 Analyzing Verilog file "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/mojo_top_0.v" into library work
 Parsing module <mojo_top_0>.
 
@@ -91,8 +101,21 @@ Elaborating module <decoder_7>.
 Elaborating module <pseudorandomnumber_3>.
 
 Elaborating module <pn_gen_8>.
+WARNING:HDLCompiler:1127 - "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/mojo_top_0.v" Line 53: Assignment to M_pseudorandomnumber_sixteen ignored, since the identifier is never used
 
-Elaborating module <edge_detector_4>.
+Elaborating module <addgame_4>.
+
+Elaborating module <register_10>.
+
+Elaborating module <register_11>.
+
+Elaborating module <edge_detector_13>.
+
+Elaborating module <button_conditioner_14>.
+
+Elaborating module <pipeline_21>.
+WARNING:Xst:2972 - "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/addgame_4.v" line 42. All outputs of instance <reg_step> of block <register_11> are unconnected in block <addgame_4>. Underlying logic will be removed.
+WARNING:Xst:2972 - "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/mojo_top_0.v" line 50. All outputs of instance <pseudorandomnumber> of block <pseudorandomnumber_3> are unconnected in block <mojo_top_0>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -106,17 +129,14 @@ WARNING:Xst:647 - Input <spi_mosi> is never used. This port will be preserved an
 WARNING:Xst:647 - Input <spi_sck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_tx> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <avr_rx_busy> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <buttondown> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <buttonleft> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <buttonright> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 1-bit tristate buffer for signal <spi_miso> created at line 63
-    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 63
-    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 63
-    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 63
-    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 63
-    Found 1-bit tristate buffer for signal <avr_rx> created at line 63
+INFO:Xst:3210 - "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/mojo_top_0.v" line 50: Output port <sixteen> of the instance <pseudorandomnumber> is unconnected or connected to loadless signal.
+    Found 1-bit tristate buffer for signal <spi_miso> created at line 68
+    Found 1-bit tristate buffer for signal <spi_channel<3>> created at line 68
+    Found 1-bit tristate buffer for signal <spi_channel<2>> created at line 68
+    Found 1-bit tristate buffer for signal <spi_channel<1>> created at line 68
+    Found 1-bit tristate buffer for signal <spi_channel<0>> created at line 68
+    Found 1-bit tristate buffer for signal <avr_rx> created at line 68
     Summary:
-	inferred   1 Multiplexer(s).
 	inferred   6 Tristate(s).
 Unit <mojo_top_0> synthesized.
 
@@ -158,34 +178,226 @@ Synthesizing Unit <decoder_7>.
 	no macro.
 Unit <decoder_7> synthesized.
 
-Synthesizing Unit <pseudorandomnumber_3>.
-    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pseudorandomnumber_3.v".
-    Found 32-bit register for signal <M_seed1_q>.
-    Found 32-bit register for signal <M_seed2_q>.
-    Found 32-bit adder for signal <M_seed1_q[31]_GND_7_o_add_0_OUT> created at line 50.
-    Found 32-bit adder for signal <M_seed2_q[31]_GND_7_o_add_1_OUT> created at line 51.
-    Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred  64 D-type flip-flop(s).
-Unit <pseudorandomnumber_3> synthesized.
-
 Synthesizing Unit <pn_gen_8>.
     Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pn_gen_8.v".
-    Found 32-bit register for signal <M_y_q>.
-    Found 32-bit register for signal <M_z_q>.
-    Found 32-bit register for signal <M_w_q>.
-    Found 32-bit register for signal <M_x_q>.
+    Found 1-bit register for signal <M_y_q<31>>.
+    Found 1-bit register for signal <M_y_q<30>>.
+    Found 1-bit register for signal <M_y_q<29>>.
+    Found 1-bit register for signal <M_y_q<28>>.
+    Found 1-bit register for signal <M_y_q<27>>.
+    Found 1-bit register for signal <M_y_q<26>>.
+    Found 1-bit register for signal <M_y_q<25>>.
+    Found 1-bit register for signal <M_y_q<24>>.
+    Found 1-bit register for signal <M_y_q<23>>.
+    Found 1-bit register for signal <M_y_q<22>>.
+    Found 1-bit register for signal <M_y_q<21>>.
+    Found 1-bit register for signal <M_y_q<20>>.
+    Found 1-bit register for signal <M_y_q<19>>.
+    Found 1-bit register for signal <M_y_q<18>>.
+    Found 1-bit register for signal <M_y_q<17>>.
+    Found 1-bit register for signal <M_y_q<16>>.
+    Found 1-bit register for signal <M_y_q<15>>.
+    Found 1-bit register for signal <M_y_q<14>>.
+    Found 1-bit register for signal <M_y_q<13>>.
+    Found 1-bit register for signal <M_y_q<12>>.
+    Found 1-bit register for signal <M_y_q<11>>.
+    Found 1-bit register for signal <M_y_q<10>>.
+    Found 1-bit register for signal <M_y_q<9>>.
+    Found 1-bit register for signal <M_y_q<8>>.
+    Found 1-bit register for signal <M_y_q<7>>.
+    Found 1-bit register for signal <M_y_q<6>>.
+    Found 1-bit register for signal <M_y_q<5>>.
+    Found 1-bit register for signal <M_y_q<4>>.
+    Found 1-bit register for signal <M_y_q<3>>.
+    Found 1-bit register for signal <M_y_q<2>>.
+    Found 1-bit register for signal <M_y_q<1>>.
+    Found 1-bit register for signal <M_y_q<0>>.
+    Found 1-bit register for signal <M_z_q<31>>.
+    Found 1-bit register for signal <M_z_q<30>>.
+    Found 1-bit register for signal <M_z_q<29>>.
+    Found 1-bit register for signal <M_z_q<28>>.
+    Found 1-bit register for signal <M_z_q<27>>.
+    Found 1-bit register for signal <M_z_q<26>>.
+    Found 1-bit register for signal <M_z_q<25>>.
+    Found 1-bit register for signal <M_z_q<24>>.
+    Found 1-bit register for signal <M_z_q<23>>.
+    Found 1-bit register for signal <M_z_q<22>>.
+    Found 1-bit register for signal <M_z_q<21>>.
+    Found 1-bit register for signal <M_z_q<20>>.
+    Found 1-bit register for signal <M_z_q<19>>.
+    Found 1-bit register for signal <M_z_q<18>>.
+    Found 1-bit register for signal <M_z_q<17>>.
+    Found 1-bit register for signal <M_z_q<16>>.
+    Found 1-bit register for signal <M_z_q<15>>.
+    Found 1-bit register for signal <M_z_q<14>>.
+    Found 1-bit register for signal <M_z_q<13>>.
+    Found 1-bit register for signal <M_z_q<12>>.
+    Found 1-bit register for signal <M_z_q<11>>.
+    Found 1-bit register for signal <M_z_q<10>>.
+    Found 1-bit register for signal <M_z_q<9>>.
+    Found 1-bit register for signal <M_z_q<8>>.
+    Found 1-bit register for signal <M_z_q<7>>.
+    Found 1-bit register for signal <M_z_q<6>>.
+    Found 1-bit register for signal <M_z_q<5>>.
+    Found 1-bit register for signal <M_z_q<4>>.
+    Found 1-bit register for signal <M_z_q<3>>.
+    Found 1-bit register for signal <M_z_q<2>>.
+    Found 1-bit register for signal <M_z_q<1>>.
+    Found 1-bit register for signal <M_z_q<0>>.
+    Found 1-bit register for signal <M_w_q<31>>.
+    Found 1-bit register for signal <M_w_q<30>>.
+    Found 1-bit register for signal <M_w_q<29>>.
+    Found 1-bit register for signal <M_w_q<28>>.
+    Found 1-bit register for signal <M_w_q<27>>.
+    Found 1-bit register for signal <M_w_q<26>>.
+    Found 1-bit register for signal <M_w_q<25>>.
+    Found 1-bit register for signal <M_w_q<24>>.
+    Found 1-bit register for signal <M_w_q<23>>.
+    Found 1-bit register for signal <M_w_q<22>>.
+    Found 1-bit register for signal <M_w_q<21>>.
+    Found 1-bit register for signal <M_w_q<20>>.
+    Found 1-bit register for signal <M_w_q<19>>.
+    Found 1-bit register for signal <M_w_q<18>>.
+    Found 1-bit register for signal <M_w_q<17>>.
+    Found 1-bit register for signal <M_w_q<16>>.
+    Found 1-bit register for signal <M_w_q<15>>.
+    Found 1-bit register for signal <M_w_q<14>>.
+    Found 1-bit register for signal <M_w_q<13>>.
+    Found 1-bit register for signal <M_w_q<12>>.
+    Found 1-bit register for signal <M_w_q<11>>.
+    Found 1-bit register for signal <M_w_q<10>>.
+    Found 1-bit register for signal <M_w_q<9>>.
+    Found 1-bit register for signal <M_w_q<8>>.
+    Found 1-bit register for signal <M_w_q<7>>.
+    Found 1-bit register for signal <M_w_q<6>>.
+    Found 1-bit register for signal <M_w_q<5>>.
+    Found 1-bit register for signal <M_w_q<4>>.
+    Found 1-bit register for signal <M_w_q<3>>.
+    Found 1-bit register for signal <M_w_q<2>>.
+    Found 1-bit register for signal <M_w_q<1>>.
+    Found 1-bit register for signal <M_w_q<0>>.
+    Found 1-bit register for signal <M_x_q<31>>.
+    Found 1-bit register for signal <M_x_q<30>>.
+    Found 1-bit register for signal <M_x_q<29>>.
+    Found 1-bit register for signal <M_x_q<28>>.
+    Found 1-bit register for signal <M_x_q<27>>.
+    Found 1-bit register for signal <M_x_q<26>>.
+    Found 1-bit register for signal <M_x_q<25>>.
+    Found 1-bit register for signal <M_x_q<24>>.
+    Found 1-bit register for signal <M_x_q<23>>.
+    Found 1-bit register for signal <M_x_q<22>>.
+    Found 1-bit register for signal <M_x_q<21>>.
+    Found 1-bit register for signal <M_x_q<20>>.
+    Found 1-bit register for signal <M_x_q<19>>.
+    Found 1-bit register for signal <M_x_q<18>>.
+    Found 1-bit register for signal <M_x_q<17>>.
+    Found 1-bit register for signal <M_x_q<16>>.
+    Found 1-bit register for signal <M_x_q<15>>.
+    Found 1-bit register for signal <M_x_q<14>>.
+    Found 1-bit register for signal <M_x_q<13>>.
+    Found 1-bit register for signal <M_x_q<12>>.
+    Found 1-bit register for signal <M_x_q<11>>.
+    Found 1-bit register for signal <M_x_q<10>>.
+    Found 1-bit register for signal <M_x_q<9>>.
+    Found 1-bit register for signal <M_x_q<8>>.
+    Found 1-bit register for signal <M_x_q<7>>.
+    Found 1-bit register for signal <M_x_q<6>>.
+    Found 1-bit register for signal <M_x_q<5>>.
+    Found 1-bit register for signal <M_x_q<4>>.
+    Found 1-bit register for signal <M_x_q<3>>.
+    Found 1-bit register for signal <M_x_q<2>>.
+    Found 1-bit register for signal <M_x_q<1>>.
+    Found 1-bit register for signal <M_x_q<0>>.
     Summary:
 	inferred 128 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
 Unit <pn_gen_8> synthesized.
 
-Synthesizing Unit <edge_detector_4>.
-    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/edge_detector_4.v".
+Synthesizing Unit <addgame_4>.
+    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/addgame_4.v".
+    Found 3-bit register for signal <M_addtozero_q>.
+    Found finite state machine <FSM_0> for signal <M_addtozero_q>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 10                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 20                                             |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst (positive)                                 |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Power Up State     | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit subtractor for signal <M_reg_out[63]_PWR_10_o_sub_16_OUT> created at line 192.
+    Found 4-bit subtractor for signal <M_reg_out[63]_PWR_10_o_sub_174_OUT> created at line 219.
+    Found 5-bit subtractor for signal <GND_9_o_GND_9_o_sub_176_OUT> created at line 221.
+    Found 4-bit subtractor for signal <M_reg_position_out[3]_GND_9_o_sub_316_OUT> created at line 225.
+    Found 4-bit subtractor for signal <M_reg_out[63]_PWR_10_o_sub_335_OUT> created at line 246.
+    Found 4-bit subtractor for signal <M_reg_out[63]_PWR_10_o_sub_496_OUT> created at line 273.
+    Found 5-bit subtractor for signal <GND_9_o_GND_9_o_sub_498_OUT> created at line 275.
+    Found 4-bit subtractor for signal <M_reg_position_out[3]_GND_9_o_sub_638_OUT> created at line 279.
+    Found 4-bit adder for signal <M_reg_out[63]_M_reg_out[63]_add_13_OUT> created at line 184.
+    Found 7-bit adder for signal <n0471[6:0]> created at line 194.
+    Found 5-bit adder for signal <n1188[4:0]> created at line 198.
+    Found 4-bit adder for signal <M_reg_out[63]_M_reg_out[63]_add_171_OUT> created at line 211.
+    Found 32-bit adder for signal <n0548> created at line 221.
+    Found 4-bit adder for signal <M_reg_out[63]_M_reg_out[63]_add_332_OUT> created at line 238.
+    Found 7-bit adder for signal <n0624[6:0]> created at line 248.
+    Found 5-bit adder for signal <n1200[4:0]> created at line 252.
+    Found 4-bit adder for signal <M_reg_out[63]_M_reg_out[63]_add_493_OUT> created at line 265.
+    Found 32-bit adder for signal <n0702> created at line 275.
+    Found 7-bit adder for signal <n1051> created at line 276.
+    Found 127-bit shifter logical right for signal <n0472> created at line 194
+    Found 127-bit shifter logical right for signal <n0549> created at line 221
+    Found 127-bit shifter logical right for signal <n0625> created at line 248
+    Found 127-bit shifter logical right for signal <n0697> created at line 265
+    Found 127-bit shifter logical right for signal <n0703> created at line 275
+    Found 64-bit 7-to-1 multiplexer for signal <M_reg_data> created at line 151.
+    Found 4-bit 7-to-1 multiplexer for signal <M_reg_position_data> created at line 151.
+    Found 4-bit comparator greater for signal <M_reg_position_out[3]_PWR_10_o_LessThan_5_o> created at line 181
+    Found 4-bit comparator greater for signal <PWR_10_o_M_reg_out[63]_LessThan_15_o> created at line 185
+    Found 4-bit comparator greater for signal <GND_9_o_M_reg_position_out[3]_LessThan_163_o> created at line 208
+    Found 4-bit comparator greater for signal <PWR_10_o_M_reg_out[63]_LessThan_173_o> created at line 212
+    Found 4-bit comparator greater for signal <PWR_10_o_M_reg_out[63]_LessThan_334_o> created at line 239
+    Found 4-bit comparator greater for signal <PWR_10_o_M_reg_out[63]_LessThan_495_o> created at line 266
+    Summary:
+	inferred  18 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+	inferred 360 Multiplexer(s).
+	inferred   5 Combinational logic shifter(s).
+	inferred   1 Finite State Machine(s).
+Unit <addgame_4> synthesized.
+
+Synthesizing Unit <register_10>.
+    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/register_10.v".
+    Found 4-bit register for signal <M_regs_q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <register_10> synthesized.
+
+Synthesizing Unit <edge_detector_13>.
+    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/edge_detector_13.v".
     Found 1-bit register for signal <M_last_q>.
     Summary:
 	inferred   1 D-type flip-flop(s).
-Unit <edge_detector_4> synthesized.
+Unit <edge_detector_13> synthesized.
+
+Synthesizing Unit <button_conditioner_14>.
+    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/button_conditioner_14.v".
+    Found 20-bit register for signal <M_ctr_q>.
+    Found 20-bit adder for signal <M_ctr_q[19]_GND_13_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  20 D-type flip-flop(s).
+Unit <button_conditioner_14> synthesized.
+
+Synthesizing Unit <pipeline_21>.
+    Related source file is "C:/Users/Gilbert/Documents/mojo/Numberful_mojo/Numberful/work/planAhead/Numberful/Numberful.srcs/sources_1/imports/verilog/pipeline_21.v".
+    Found 2-bit register for signal <M_pipe_q>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <pipeline_21> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -193,41 +405,52 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  16x7-bit single-port Read Only RAM                    : 1
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 24
  12-bit adder                                          : 1
+ 20-bit adder                                          : 4
  32-bit adder                                          : 2
+ 4-bit adder                                           : 4
+ 4-bit subtractor                                      : 5
+ 5-bit adder                                           : 2
+ 5-bit subtractor                                      : 2
  6-bit adder                                           : 1
-# Registers                                            : 13
- 1-bit register                                        : 1
+ 7-bit adder                                           : 3
+# Registers                                            : 31
+ 1-bit register                                        : 4
  12-bit register                                       : 1
- 32-bit register                                       : 10
- 4-bit register                                        : 1
-# Multiplexers                                         : 3
- 32-bit 2-to-1 multiplexer                             : 2
- 64-bit 2-to-1 multiplexer                             : 1
-# Logic shifters                                       : 1
- 127-bit shifter logical right                         : 1
+ 2-bit register                                        : 4
+ 20-bit register                                       : 4
+ 4-bit register                                        : 18
+# Comparators                                          : 6
+ 4-bit comparator greater                              : 6
+# Multiplexers                                         : 360
+ 1-bit 2-to-1 multiplexer                              : 8
+ 2-bit 2-to-1 multiplexer                              : 8
+ 3-bit 2-to-1 multiplexer                              : 9
+ 4-bit 2-to-1 multiplexer                              : 326
+ 64-bit 2-to-1 multiplexer                             : 8
+ 64-bit 7-to-1 multiplexer                             : 1
+# Logic shifters                                       : 6
+ 127-bit shifter logical right                         : 6
 # Tristates                                            : 6
  1-bit tristate buffer                                 : 6
-# Xors                                                 : 6
- 32-bit xor2                                           : 4
- 32-bit xor4                                           : 2
+# FSMs                                                 : 1
 
 =========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
 
+Synthesizing (advanced) Unit <button_conditioner_14>.
+The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
+Unit <button_conditioner_14> synthesized (advanced).
+
 Synthesizing (advanced) Unit <counter_5>.
 The following registers are absorbed into counter <M_ctr_q>: 1 register on signal <M_ctr_q>.
 Unit <counter_5> synthesized (advanced).
-
-Synthesizing (advanced) Unit <pseudorandomnumber_3>.
-The following registers are absorbed into counter <M_seed1_q>: 1 register on signal <M_seed1_q>.
-The following registers are absorbed into accumulator <M_seed2_q>: 1 register on signal <M_seed2_q>.
-Unit <pseudorandomnumber_3> synthesized (advanced).
 
 Synthesizing (advanced) Unit <seven_seg_6>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_segs> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -249,244 +472,80 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  16x7-bit single-port distributed Read Only RAM        : 1
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 19
+ 4-bit adder                                           : 4
+ 4-bit subtractor                                      : 5
+ 5-bit adder                                           : 2
+ 5-bit subtractor                                      : 2
  6-bit adder                                           : 1
-# Counters                                             : 2
+ 7-bit adder                                           : 5
+# Counters                                             : 5
  12-bit up counter                                     : 1
- 32-bit up counter                                     : 1
-# Accumulators                                         : 1
- 32-bit up accumulator                                 : 1
-# Registers                                            : 261
- Flip-Flops                                            : 261
-# Multiplexers                                         : 3
- 32-bit 2-to-1 multiplexer                             : 2
- 64-bit 2-to-1 multiplexer                             : 1
-# Logic shifters                                       : 1
- 127-bit shifter logical right                         : 1
-# Xors                                                 : 6
- 32-bit xor2                                           : 4
- 32-bit xor4                                           : 2
+ 20-bit up counter                                     : 4
+# Registers                                            : 84
+ Flip-Flops                                            : 84
+# Comparators                                          : 6
+ 4-bit comparator greater                              : 6
+# Multiplexers                                         : 360
+ 1-bit 2-to-1 multiplexer                              : 8
+ 2-bit 2-to-1 multiplexer                              : 8
+ 3-bit 2-to-1 multiplexer                              : 9
+ 4-bit 2-to-1 multiplexer                              : 326
+ 64-bit 2-to-1 multiplexer                             : 8
+ 64-bit 7-to-1 multiplexer                             : 1
+# Logic shifters                                       : 6
+ 127-bit shifter logical right                         : 6
+# FSMs                                                 : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1293 - FF/Latch <pseudorandomnumber/M_seed2_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <addgame/FSM_0> on signal <M_addtozero_q[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 010
+ 011   | 011
+ 100   | 100
+ 101   | 101
+-------------------
 
 Optimizing unit <mojo_top_0> ...
 
-Optimizing unit <pn_gen_8> ...
-WARNING:Xst:1293 - FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_19> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_20> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_2> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_1> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_30> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_29> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_2> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_14> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_17> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_9> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_21> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_6> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_22> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_11> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_1> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_10> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_8> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_12> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_27> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_28> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_31> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_26> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_24> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_23> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_18> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_15> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_7> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_4> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <pseudorandomnumber/pn_gen1/M_x_q_3> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_28> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_27> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_21> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_21> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_17> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_14> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_12> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_9> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_8> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_2> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_2> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_y_q_0> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_29> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_22> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_11> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_6> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen2/M_z_q_1> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_28> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_27> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_21> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_21> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_17> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_14> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_12> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_9> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_8> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_2> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_2> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_y_q_0> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_29> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_22> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_11> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_6> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1898 - Due to constant pushing, FF/Latch <pseudorandomnumber/pn_gen1/M_z_q_1> is unconnected in block <mojo_top_0>.
-WARNING:Xst:1293 - FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_0> has a constant value of 0 in block <mojo_top_0>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_1> in Unit <mojo_top_0> is equivalent to the following 2 FFs/Latches, which will be removed : <pseudorandomnumber/M_seed1_q_0> <pseudorandomnumber/pn_gen2/M_w_q_1> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_10> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_9> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_2> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_1> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_10> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_2> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_12> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_11> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_4> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_3> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_12> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_5> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_4> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_14> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_13> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_6> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_5> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_20> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_19> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_14> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_7> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_6> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_21> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_20> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_15> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_8> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_7> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_22> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_21> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_17> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_16> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_8> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_23> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_22> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_18> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_17> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_18> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_24> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_23> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_25> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_24> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_30> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_29> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_26> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_25> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_31> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_30> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_27> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_26> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_28> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_27> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/M_seed2_q_29> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/M_seed1_q_28> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_3> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_2> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_11> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_10> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_13> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_12> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_9> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_8> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_15> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_14> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_21> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_20> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_16> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_15> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_23> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_22> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_24> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_23> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_19> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_18> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_30> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_29> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_25> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_24> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_28> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_27> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_w_q_29> in Unit <mojo_top_0> is equivalent to the following FF/Latch, which will be removed : <pseudorandomnumber/pn_gen1/M_w_q_28> 
-INFO:Xst:2261 - The FF/Latch <pseudorandomnumber/pn_gen2/M_x_q_30> in Unit <mojo_top_0> is equivalent to the following 47 FFs/Latches, which will be removed : <pseudorandomnumber/pn_gen2/M_x_q_29> <pseudorandomnumber/pn_gen2/M_x_q_25> <pseudorandomnumber/pn_gen2/M_x_q_22> <pseudorandomnumber/pn_gen2/M_x_q_20> <pseudorandomnumber/pn_gen2/M_x_q_19> <pseudorandomnumber/pn_gen2/M_x_q_16> <pseudorandomnumber/pn_gen2/M_x_q_13> <pseudorandomnumber/pn_gen2/M_x_q_11> <pseudorandomnumber/pn_gen2/M_x_q_10> <pseudorandomnumber/pn_gen2/M_x_q_6> <pseudorandomnumber/pn_gen2/M_x_q_5> <pseudorandomnumber/pn_gen2/M_x_q_1> <pseudorandomnumber/pn_gen2/M_y_q_30> <pseudorandomnumber/pn_gen2/M_y_q_25> <pseudorandomnumber/pn_gen2/M_y_q_20> <pseudorandomnumber/pn_gen2/M_y_q_19> <pseudorandomnumber/pn_gen2/M_y_q_16> <pseudorandomnumber/pn_gen2/M_y_q_13> <pseudorandomnumber/pn_gen2/M_y_q_5> <pseudorandomnumber/pn_gen2/M_z_q_25> <pseudorandomnumber/pn_gen2/M_z_q_16> <pseudorandomnumber/pn_gen2/M_z_q_13>
-   <pseudorandomnumber/pn_gen2/M_z_q_5> <pseudorandomnumber/pn_gen1/M_x_q_30> <pseudorandomnumber/pn_gen1/M_x_q_29> <pseudorandomnumber/pn_gen1/M_x_q_25> <pseudorandomnumber/pn_gen1/M_x_q_22> <pseudorandomnumber/pn_gen1/M_x_q_20> <pseudorandomnumber/pn_gen1/M_x_q_19> <pseudorandomnumber/pn_gen1/M_x_q_16> <pseudorandomnumber/pn_gen1/M_x_q_13> <pseudorandomnumber/pn_gen1/M_x_q_11> <pseudorandomnumber/pn_gen1/M_x_q_10> <pseudorandomnumber/pn_gen1/M_x_q_6> <pseudorandomnumber/pn_gen1/M_x_q_5> <pseudorandomnumber/pn_gen1/M_x_q_1> <pseudorandomnumber/pn_gen1/M_y_q_30> <pseudorandomnumber/pn_gen1/M_y_q_25> <pseudorandomnumber/pn_gen1/M_y_q_20> <pseudorandomnumber/pn_gen1/M_y_q_19> <pseudorandomnumber/pn_gen1/M_y_q_16> <pseudorandomnumber/pn_gen1/M_y_q_13> <pseudorandomnumber/pn_gen1/M_y_q_5> <pseudorandomnumber/pn_gen1/M_z_q_25> <pseudorandomnumber/pn_gen1/M_z_q_16> <pseudorandomnumber/pn_gen1/M_z_q_13> <pseudorandomnumber/pn_gen1/M_z_q_5> 
+Optimizing unit <addgame_4> ...
+INFO:Xst:2261 - The FF/Latch <addgame/reg_gen_0[1].L_reg/M_regs_q_0> in Unit <mojo_top_0> is equivalent to the following 7 FFs/Latches, which will be removed : <addgame/reg_gen_0[3].L_reg/M_regs_q_0> <addgame/reg_gen_0[4].L_reg/M_regs_q_0> <addgame/reg_gen_0[6].L_reg/M_regs_q_0> <addgame/reg_gen_0[9].L_reg/M_regs_q_0> <addgame/reg_gen_0[11].L_reg/M_regs_q_0> <addgame/reg_gen_0[12].L_reg/M_regs_q_0> <addgame/reg_gen_0[14].L_reg/M_regs_q_0> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 3.
-FlipFlop reset_cond/M_stage_q_3 has been replicated 1 time(s)
-FlipFlop seg/ctr/M_ctr_q_10 has been replicated 2 time(s)
-FlipFlop seg/ctr/M_ctr_q_11 has been replicated 1 time(s)
-FlipFlop seg/ctr/M_ctr_q_8 has been replicated 1 time(s)
-FlipFlop seg/ctr/M_ctr_q_9 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 10.
+FlipFlop addgame/reg_position/M_regs_q_0 has been replicated 3 time(s)
+FlipFlop addgame/reg_position/M_regs_q_1 has been replicated 1 time(s)
+FlipFlop addgame/reg_position/M_regs_q_2 has been replicated 2 time(s)
+FlipFlop addgame/reg_position/M_regs_q_3 has been replicated 2 time(s)
 
 Final Macro Processing ...
+
+Processing Unit <mojo_top_0> :
+	Found 2-bit shift register for signal <addgame/button_condright/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <addgame/button_condleft/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <addgame/button_conddown/sync/M_pipe_q_1>.
+	Found 2-bit shift register for signal <addgame/button_condup/sync/M_pipe_q_1>.
+INFO:Xst:741 - HDL ADVISOR - A 4-bit shift register was found for signal <reset_cond/M_stage_q_3> and currently occupies 4 logic cells (2 slices). Removing the set/reset logic would take advantage of SRL32 (and derived) primitives and reduce this to 1 logic cells (1 slices). Evaluate if the set/reset can be removed for this simple shift register. The majority of simple pipeline structures do not need to be set/reset operationally.
+Unit <mojo_top_0> processed.
 
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 104
- Flip-Flops                                            : 104
+# Registers                                            : 172
+ Flip-Flops                                            : 172
+# Shift Registers                                      : 4
+ 2-bit shift register                                  : 4
 
 =========================================================================
 
@@ -509,26 +568,31 @@ Top Level Output File Name         : mojo_top_0.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 307
-#      GND                         : 4
-#      INV                         : 4
-#      LUT1                        : 72
-#      LUT2                        : 1
-#      LUT3                        : 18
-#      LUT4                        : 49
-#      LUT5                        : 12
-#      LUT6                        : 28
-#      MUXCY                       : 72
-#      VCC                         : 3
-#      XORCY                       : 44
-# FlipFlops/Latches                : 104
-#      FD                          : 20
-#      FDE                         : 79
-#      FDS                         : 5
+# BELS                             : 785
+#      GND                         : 11
+#      INV                         : 14
+#      LUT1                        : 87
+#      LUT2                        : 8
+#      LUT3                        : 30
+#      LUT4                        : 65
+#      LUT5                        : 110
+#      LUT6                        : 241
+#      MUXCY                       : 87
+#      MUXF7                       : 13
+#      VCC                         : 27
+#      XORCY                       : 92
+# FlipFlops/Latches                : 176
+#      FD                          : 4
+#      FDE                         : 4
+#      FDR                         : 15
+#      FDRE                        : 149
+#      FDS                         : 4
+# Shift Registers                  : 4
+#      SRLC16E                     : 4
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 40
-#      IBUF                        : 2
+# IO Buffers                       : 43
+#      IBUF                        : 5
 #      OBUF                        : 32
 #      OBUFT                       : 6
 
@@ -539,20 +603,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             104  out of  11440     0%  
- Number of Slice LUTs:                  184  out of   5720     3%  
-    Number used as Logic:               184  out of   5720     3%  
+ Number of Slice Registers:             176  out of  11440     1%  
+ Number of Slice LUTs:                  559  out of   5720     9%  
+    Number used as Logic:               555  out of   5720     9%  
+    Number used as Memory:                4  out of   1440     0%  
+       Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    194
-   Number with an unused Flip Flop:      90  out of    194    46%  
-   Number with an unused LUT:            10  out of    194     5%  
-   Number of fully used LUT-FF pairs:    94  out of    194    48%  
-   Number of unique control sets:         8
+ Number of LUT Flip Flop pairs used:    636
+   Number with an unused Flip Flop:     460  out of    636    72%  
+   Number with an unused LUT:            77  out of    636    12%  
+   Number of fully used LUT-FF pairs:    99  out of    636    15%  
+   Number of unique control sets:        33
 
 IO Utilization: 
  Number of IOs:                          50
- Number of bonded IOBs:                  41  out of    102    40%  
+ Number of bonded IOBs:                  44  out of    102    43%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -578,7 +644,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 104   |
+clk                                | BUFGP                  | 180   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -589,10 +655,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 3.712ns (Maximum Frequency: 269.433MHz)
-   Minimum input arrival time before clock: 3.563ns
-   Maximum output required time after clock: 9.178ns
-   Maximum combinational path delay: 6.395ns
+   Minimum period: 9.691ns (Maximum Frequency: 103.189MHz)
+   Minimum input arrival time before clock: 3.526ns
+   Maximum output required time after clock: 9.032ns
+   Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
@@ -600,64 +666,39 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 3.712ns (frequency: 269.433MHz)
-  Total number of paths / destination ports: 1153 / 181
+  Clock period: 9.691ns (frequency: 103.189MHz)
+  Total number of paths / destination ports: 82560 / 419
 -------------------------------------------------------------------------
-Delay:               3.712ns (Levels of Logic = 34)
-  Source:            pseudorandomnumber/M_seed2_q_1 (FF)
-  Destination:       pseudorandomnumber/M_seed1_q_31 (FF)
+Delay:               9.691ns (Levels of Logic = 8)
+  Source:            addgame/reg_position/M_regs_q_1_1 (FF)
+  Destination:       addgame/reg_gen_0[9].L_reg/M_regs_q_2 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: pseudorandomnumber/M_seed2_q_1 to pseudorandomnumber/M_seed1_q_31
+  Data Path: addgame/reg_position/M_regs_q_1_1 to addgame/reg_gen_0[9].L_reg/M_regs_q_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              4   0.525   0.803  M_seed2_q_1 (M_seed2_q_1)
-     INV:I->O              1   0.255   0.000  Mcount_M_seed1_q_lut<0>_INV_0 (Mcount_M_seed1_q_lut<0>)
-     MUXCY:S->O            1   0.215   0.000  Mcount_M_seed1_q_cy<0> (Mcount_M_seed1_q_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<1> (Mcount_M_seed1_q_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<2> (Mcount_M_seed1_q_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<3> (Mcount_M_seed1_q_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<4> (Mcount_M_seed1_q_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<5> (Mcount_M_seed1_q_cy<5>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<6> (Mcount_M_seed1_q_cy<6>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<7> (Mcount_M_seed1_q_cy<7>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<8> (Mcount_M_seed1_q_cy<8>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<9> (Mcount_M_seed1_q_cy<9>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<10> (Mcount_M_seed1_q_cy<10>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<11> (Mcount_M_seed1_q_cy<11>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<12> (Mcount_M_seed1_q_cy<12>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<13> (Mcount_M_seed1_q_cy<13>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<14> (Mcount_M_seed1_q_cy<14>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<15> (Mcount_M_seed1_q_cy<15>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<16> (Mcount_M_seed1_q_cy<16>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<17> (Mcount_M_seed1_q_cy<17>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<18> (Mcount_M_seed1_q_cy<18>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<19> (Mcount_M_seed1_q_cy<19>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<20> (Mcount_M_seed1_q_cy<20>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<21> (Mcount_M_seed1_q_cy<21>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<22> (Mcount_M_seed1_q_cy<22>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<23> (Mcount_M_seed1_q_cy<23>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<24> (Mcount_M_seed1_q_cy<24>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<25> (Mcount_M_seed1_q_cy<25>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<26> (Mcount_M_seed1_q_cy<26>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<27> (Mcount_M_seed1_q_cy<27>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<28> (Mcount_M_seed1_q_cy<28>)
-     MUXCY:CI->O           1   0.023   0.000  Mcount_M_seed1_q_cy<29> (Mcount_M_seed1_q_cy<29>)
-     MUXCY:CI->O           0   0.023   0.000  Mcount_M_seed1_q_cy<30> (Mcount_M_seed1_q_cy<30>)
-     XORCY:CI->O           1   0.206   0.682  Mcount_M_seed1_q_xor<31> (Result<31>1)
-     LUT3:I2->O            1   0.254   0.000  M_seed1_q_31_rstpot (M_seed1_q_31_rstpot)
-     FD:D                      0.074          M_seed1_q_31
+     FDRE:C->Q            12   0.525   1.297  M_regs_q_1_1 (M_regs_q_1_1)
+     end scope: 'addgame/reg_position:M_regs_q_1_1'
+     LUT5:I2->O            6   0.235   1.152  Sh2351 (Sh235)
+     LUT6:I2->O           10   0.254   1.008  Sh3141 (Sh314)
+     LUT6:I5->O           12   0.254   1.069  Madd_M_reg_out[63]_M_reg_out[63]_add_493_OUT_lut<0>1 (Madd_M_reg_out[63]_M_reg_out[63]_add_493_OUT_lut<0>)
+     LUT5:I4->O            1   0.254   0.910  Madd_M_reg_out[63]_M_reg_out[63]_add_493_OUT_xor<3>11_SW0 (N91)
+     LUT5:I2->O           10   0.235   1.116  PWR_10_o_M_reg_out[63]_LessThan_495_o21 (PWR_10_o_M_reg_out[63]_LessThan_495_o_mmx_out2)
+     LUT4:I2->O            4   0.250   0.804  Mmux_M_reg_data11911 (Mmux_M_reg_data1191)
+     LUT6:I5->O            1   0.254   0.000  Mmux_M_reg_data2001 (M_reg_data<38>)
+     begin scope: 'addgame/reg_gen_0[9].L_reg:data<2>'
+     FDRE:D                    0.074          M_regs_q_2
     ----------------------------------------
-    Total                      3.712ns (2.227ns logic, 1.485ns route)
-                                       (60.0% logic, 40.0% route)
+    Total                      9.691ns (2.335ns logic, 7.356ns route)
+                                       (24.1% logic, 75.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 6 / 6
+  Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              3.563ns (Levels of Logic = 3)
+Offset:              3.526ns (Levels of Logic = 3)
   Source:            rst_n (PAD)
   Destination:       reset_cond/M_stage_q_3 (FF)
   Destination Clock: clk rising
@@ -667,18 +708,18 @@ Offset:              3.563ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
-     INV:I->O              5   0.255   0.840  M_reset_cond_in1_INV_0 (M_reset_cond_in)
+     INV:I->O              4   0.255   0.803  M_reset_cond_in1_INV_0 (M_reset_cond_in)
      begin scope: 'reset_cond:in'
      FDS:S                     0.459          M_stage_q_0
     ----------------------------------------
-    Total                      3.563ns (2.042ns logic, 1.521ns route)
-                                       (57.3% logic, 42.7% route)
+    Total                      3.526ns (2.042ns logic, 1.484ns route)
+                                       (57.9% logic, 42.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
-  Total number of paths / destination ports: 792 / 23
+  Total number of paths / destination ports: 764 / 23
 -------------------------------------------------------------------------
-Offset:              9.178ns (Levels of Logic = 5)
+Offset:              9.032ns (Levels of Logic = 5)
   Source:            seg/ctr/M_ctr_q_10 (FF)
   Destination:       io_seg<6> (PAD)
   Source Clock:      clk rising
@@ -687,35 +728,16 @@ Offset:              9.178ns (Levels of Logic = 5)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              32   0.525   1.975  M_ctr_q_10 (M_ctr_q_10)
+     FDR:C->Q             34   0.525   2.008  M_ctr_q_10 (M_ctr_q_10)
      end scope: 'seg/ctr:value<2>'
      end scope: 'seg:M_ctr_q_10'
-     LUT6:I0->O            1   0.254   0.958  Sh3141 (Sh3141)
-     LUT6:I2->O            7   0.254   1.365  Sh3145 (Sh3145)
-     LUT6:I0->O            1   0.254   0.681  io_seg<1>1 (io_seg_1_OBUF)
+     LUT6:I0->O            1   0.254   0.958  Sh3152 (Sh3152)
+     LUT6:I2->O            7   0.254   1.186  Sh3155 (Sh315)
+     LUT4:I0->O            1   0.254   0.681  io_seg<1>1 (io_seg_1_OBUF)
      OBUF:I->O                 2.912          io_seg_1_OBUF (io_seg<1>)
     ----------------------------------------
-    Total                      9.178ns (4.199ns logic, 4.979ns route)
-                                       (45.8% logic, 54.2% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 7 / 7
--------------------------------------------------------------------------
-Delay:               6.395ns (Levels of Logic = 3)
-  Source:            buttonup (PAD)
-  Destination:       io_seg<6> (PAD)
-
-  Data Path: buttonup to io_seg<6>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             8   1.328   1.220  buttonup_IBUF (buttonup_IBUF)
-     LUT6:I2->O            1   0.254   0.681  io_seg<6>1 (io_seg_6_OBUF)
-     OBUF:I->O                 2.912          io_seg_6_OBUF (io_seg<6>)
-    ----------------------------------------
-    Total                      6.395ns (4.494ns logic, 1.901ns route)
-                                       (70.3% logic, 29.7% route)
+    Total                      9.032ns (4.199ns logic, 4.833ns route)
+                                       (46.5% logic, 53.5% route)
 
 =========================================================================
 
@@ -727,20 +749,20 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    3.712|         |         |         |
+clk            |    9.691|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.09 secs
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.39 secs
  
 --> 
 
-Total memory usage is 296544 kilobytes
+Total memory usage is 325664 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  155 (   0 filtered)
-Number of infos    :   47 (   0 filtered)
+Number of warnings :    9 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

@@ -3,15 +3,15 @@
   <files>
     <src>addgame.luc</src>
     <src>seven_seg.luc</src>
-    <src>register.luc</src>
     <src>pseudorandomnumber.luc</src>
+    <src>register.luc</src>
     <src>multi_seven_seg.luc</src>
     <src top="true">mojo_top.luc</src>
-    <ucf>custom.ucf</ucf>
     <ucf lib="true">mojo.ucf</ucf>
+    <ucf>custom.ucf</ucf>
     <component>reg_interface.luc</component>
-    <component>pn_gen.luc</component>
     <component>decoder.luc</component>
+    <component>pn_gen.luc</component>
     <component>reset_conditioner.luc</component>
     <component>pipeline.luc</component>
     <component>button_conditioner.luc</component>

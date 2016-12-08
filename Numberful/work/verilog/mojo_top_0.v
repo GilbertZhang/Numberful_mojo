@@ -52,12 +52,17 @@ module mojo_top_0 (
     .rst(rst),
     .sixteen(M_pseudorandomnumber_sixteen)
   );
-  wire [1-1:0] M_edge_detector_out;
-  reg [1-1:0] M_edge_detector_in;
-  edge_detector_4 edge_detector (
+  wire [64-1:0] M_addgame_segment_display;
+  reg [64-1:0] M_addgame_sixteen;
+  addgame_4 addgame (
     .clk(clk),
-    .in(M_edge_detector_in),
-    .out(M_edge_detector_out)
+    .rst(rst),
+    .buttondown(buttondown),
+    .buttonup(buttonup),
+    .buttonleft(buttonleft),
+    .buttonright(buttonright),
+    .sixteen(M_addgame_sixteen),
+    .segment_display(M_addgame_segment_display)
   );
   
   always @* begin
@@ -67,11 +72,8 @@ module mojo_top_0 (
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
     led = 8'h00;
-    M_seg_values = M_pseudorandomnumber_sixteen;
-    M_edge_detector_in = buttonup;
-    if (M_edge_detector_out) begin
-      M_seg_values = 64'h0000000000000000;
-    end
+    M_addgame_sixteen = 64'h1111111111111111;
+    M_seg_values = M_addgame_segment_display;
     io_seg = ~M_seg_seg;
     io_sel = ~M_seg_sel;
   end

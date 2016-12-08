@@ -8,40 +8,46 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Dec 08 12:08:42 2016
+Mapped Date    : Thu Dec 08 15:45:28 2016
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    6
 Slice Logic Utilization:
-  Number of Slice Registers:                   103 out of  11,440    1%
-    Number used as Flip Flops:                 103
+  Number of Slice Registers:                   176 out of  11,440    1%
+    Number used as Flip Flops:                 176
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        169 out of   5,720    2%
-    Number used as logic:                      165 out of   5,720    2%
-      Number using O6 output only:              78
-      Number using O5 output only:              69
-      Number using O5 and O6:                   18
+  Number of Slice LUTs:                        498 out of   5,720    8%
+    Number used as logic:                      489 out of   5,720    8%
+      Number using O6 output only:             347
+      Number using O5 output only:              82
+      Number using O5 and O6:                   60
       Number used as ROM:                        0
-    Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:      4
-      Number with same-slice register load:      1
-      Number with same-slice carry load:         3
+    Number used as Memory:                       4 out of   1,440    1%
+      Number used as Dual Port RAM:              0
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:             4
+        Number using O6 output only:             4
+        Number using O5 output only:             0
+        Number using O5 and O6:                  0
+    Number used exclusively as route-thrus:      5
+      Number with same-slice register load:      0
+      Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    61 out of   1,430    4%
-  Number of MUXCYs used:                        76 out of   2,860    2%
-  Number of LUT Flip Flop pairs used:          175
-    Number with an unused Flip Flop:            80 out of     175   45%
-    Number with an unused LUT:                   6 out of     175    3%
-    Number of fully used LUT-FF pairs:          89 out of     175   50%
-    Number of unique control sets:               3
+  Number of occupied Slices:                   164 out of   1,430   11%
+  Number of MUXCYs used:                        92 out of   2,860    3%
+  Number of LUT Flip Flop pairs used:          498
+    Number with an unused Flip Flop:           323 out of     498   64%
+    Number with an unused LUT:                   0 out of     498    0%
+    Number of fully used LUT-FF pairs:         175 out of     498   35%
+    Number of unique control sets:              10
     Number of slice register sites lost
-      to control set restrictions:               9 out of  11,440    1%
+      to control set restrictions:              36 out of  11,440    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -51,8 +57,7 @@ Slice Logic Distribution:
 
 IO Utilization:
   Number of bonded IOBs:                        44 out of     102   43%
-    Number of LOCed IOBs:                       44 out of      44  100%
-    IOB Flip Flops:                              1
+    Number of LOCed IOBs:                       43 out of      44   97%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
@@ -63,9 +68,7 @@ Specific Feature Utilization:
     Number used as BUFGs:                        1
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
-  Number of ILOGIC2/ISERDES2s:                   1 out of     200    1%
-    Number used as ILOGIC2s:                     1
-    Number used as ISERDES2s:                    0
+  Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
   Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
   Number of BSCANs:                              0 out of       4    0%
@@ -81,11 +84,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.32
+Average Fanout of Non-Clock Nets:                4.37
 
-Peak Memory Usage:  429 MB
-Total REAL time to MAP completion:  5 secs 
-Total CPU time to MAP completion (all processors):   5 secs 
+Peak Memory Usage:  437 MB
+Total REAL time to MAP completion:  7 secs 
+Total CPU time to MAP completion (all processors):   7 secs 
 
 Table of Contents
 -----------------
@@ -127,13 +130,13 @@ INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
 INFO:LIT:243 - Logical network avr_rx_busy_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 8 more times for the following
+INFO:LIT:395 - The above info message is repeated 5 more times for the following
    (max. 5 shown):
-   buttonright_IBUF,
    spi_mosi_IBUF,
    spi_ss_IBUF,
-   buttondown_IBUF,
-   spi_sck_IBUF
+   spi_sck_IBUF,
+   cclk_IBUF,
+   avr_tx_IBUF
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
@@ -145,16 +148,64 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
+INFO:Place:834 - Only a subset of IOs are locked. Out of 44 IOs, 43 are locked
+   and 1 are not locked. If you would like to print the names of these IOs,
+   please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
   12 block(s) removed
-   7 block(s) optimized away
-   6 signal(s) removed
+  38 block(s) optimized away
+  23 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "addgame/reg_gen_0[5].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[0].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[12].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
+The signal "addgame/reg_gen_0[7].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[2].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[14].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
+The signal "addgame/reg_gen_0[9].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[4].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[11].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
+The signal "addgame/reg_position/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[6].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[1].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[13].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
+The signal "addgame/reg_gen_0[8].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[3].L_reg/io_seg_7_OBUF" is sourceless and has been
+removed.
+The signal "addgame/reg_gen_0[15].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
+The signal "addgame/reg_gen_0[10].L_reg/io_seg_7_OBUF" is sourceless and has
+been removed.
 
 The trimmed logic reported below is either:
    1. part of a cycle
@@ -184,8 +235,39 @@ Optimized Block(s):
 TYPE 		BLOCK
 GND 		XST_GND
 VCC 		XST_VCC
-GND 		pseudorandomnumber/XST_GND
-VCC 		pseudorandomnumber/XST_VCC
+GND 		addgame/button_conddown/XST_GND
+VCC 		addgame/button_conddown/XST_VCC
+GND 		addgame/button_conddown/sync/XST_GND
+VCC 		addgame/button_conddown/sync/XST_VCC
+GND 		addgame/button_condleft/XST_GND
+VCC 		addgame/button_condleft/XST_VCC
+GND 		addgame/button_condleft/sync/XST_GND
+VCC 		addgame/button_condleft/sync/XST_VCC
+GND 		addgame/button_condright/XST_GND
+VCC 		addgame/button_condright/XST_VCC
+GND 		addgame/button_condright/sync/XST_GND
+VCC 		addgame/button_condright/sync/XST_VCC
+GND 		addgame/button_condup/XST_GND
+VCC 		addgame/button_condup/XST_VCC
+GND 		addgame/button_condup/sync/XST_GND
+VCC 		addgame/button_condup/sync/XST_VCC
+VCC 		addgame/reg_gen_0[0].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[10].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[11].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[12].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[13].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[14].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[15].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[1].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[2].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[3].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[4].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[5].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[6].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[7].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[8].L_reg/XST_VCC
+VCC 		addgame/reg_gen_0[9].L_reg/XST_VCC
+VCC 		addgame/reg_position/XST_VCC
 GND 		reset_cond/XST_GND
 GND 		seg/ctr/XST_GND
 VCC 		seg/ctr/XST_VCC
@@ -204,8 +286,8 @@ Section 6 - IOB Properties
 | avr_tx                             | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | buttondown                         | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLUP   |          |
 | buttonleft                         | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLUP   |          |
-| buttonright                        | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLUP   |          |
-| buttonup                           | IOB              | INPUT     | LVTTL                |       |          |      | IFF          | PULLUP   |          |
+| buttonright                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| buttonup                           | IOB              | INPUT     | LVTTL                |       |          |      |              | PULLUP   |          |
 | cclk                               | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVTTL                |       |          |      |              |          |          |
 | io_seg[0]                          | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          |          |

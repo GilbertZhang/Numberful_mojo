@@ -30,11 +30,10 @@ module mojo_top (
     .rst(rst){
       multi_seven_seg seg;        // button press counter
       pseudorandomnumber pseudorandomnumber;
-      //addgame addgame(.buttondown(buttondown),.buttonup(buttonup),.buttonleft(buttonleft),.buttonright(buttonright));
+      addgame addgame(.buttondown(buttondown),.buttonup(buttonup),.buttonleft(buttonleft),.buttonright(buttonright));
       
       
     }
-    edge_detector edge_detector(#RISE(1),#FALL(0));
   }
   
   always {
@@ -47,14 +46,12 @@ module mojo_top (
     led = 8h00;
     
     
-   // addgame.sixteen = pseudorandomnumber.sixteen;
-    seg.values = pseudorandomnumber.sixteen;
-    //seg.values = addgame.segment_display;
-    
-    edge_detector.in = buttonup;
-    if(edge_detector.out){
-      seg.values = {4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0};
-    }
+    //addgame.sixteen = pseudorandomnumber.sixteen;
+    addgame.sixteen = {4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1};
+    seg.values = addgame.segment_display;
+    //seg.values = pseudorandomnumber.sixteen;
+    //seg.values = {4h1,4h2,4h3,4h4,4h5,4h6,4h7,4h8,4h9,4h0,4h1,4h2,4h3,4h4,4h5,4h6};
+ 
    
     io_seg = ~seg.seg;
     io_sel = ~seg.sel;

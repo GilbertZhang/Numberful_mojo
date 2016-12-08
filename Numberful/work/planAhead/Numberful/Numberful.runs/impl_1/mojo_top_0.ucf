@@ -61,18 +61,15 @@ NET "io_sel[14]" IOSTANDARD = LVTTL;
 NET "io_sel[15]" LOC = P26;
 NET "io_sel[15]" IOSTANDARD = LVTTL;
 
-NET "buttonup" LOC = P50;
-NET "buttonup" IOSTANDARD = LVTTL;
-NET "buttonup" PULLUP;
 NET "buttondown" LOC = P40;
 NET "buttondown" IOSTANDARD = LVTTL;
 NET "buttondown" PULLUP;
 NET "buttonleft" LOC = P34;
 NET "buttonleft" IOSTANDARD = LVTTL;
 NET "buttonleft" PULLUP;
-NET "buttonright" LOC = P32;
-NET "buttonright" IOSTANDARD = LVTTL;
-NET "buttonright" PULLUP;
+NET "buttonup" LOC = P32;
+NET "buttonup" IOSTANDARD = LVTTL;
+NET "buttonup" PULLUP;
 
 ####################################################################################
 # Constraints from file : 'mojo.ucf'
