@@ -61,15 +61,44 @@ NET "io_sel[14]" IOSTANDARD = LVTTL;
 NET "io_sel[15]" LOC = P26;
 NET "io_sel[15]" IOSTANDARD = LVTTL;
 
+NET "buttonup" LOC = P50;
+NET "buttonup" IOSTANDARD = LVTTL;
+NET "buttonup" PULLUP;
 NET "buttondown" LOC = P40;
 NET "buttondown" IOSTANDARD = LVTTL;
 NET "buttondown" PULLUP;
 NET "buttonleft" LOC = P34;
 NET "buttonleft" IOSTANDARD = LVTTL;
 NET "buttonleft" PULLUP;
-NET "buttonup" LOC = P32;
-NET "buttonup" IOSTANDARD = LVTTL;
-NET "buttonup" PULLUP;
+NET "buttonright" LOC = P32;
+NET "buttonright" IOSTANDARD = LVTTL;
+NET "buttonright" PULLUP;
+
+NET "st_sel[0]" LOC = P112;
+NET "st_sel[0]" IOSTANDARD = LVTTL;
+NET "st_sel[1]" LOC = P115;
+NET "st_sel[1]" IOSTANDARD = LVTTL;
+NET "st_sel[2]" LOC = P116;
+NET "st_sel[2]" IOSTANDARD = LVTTL;
+NET "st_sel[3]" LOC = P119;
+NET "st_sel[3]" IOSTANDARD = LVTTL;
+
+NET "st_seg[0]" LOC = P118;
+NET "st_seg[0]" IOSTANDARD = LVTTL;
+NET "st_seg[1]" LOC = P114;
+NET "st_seg[1]" IOSTANDARD = LVTTL;
+NET "st_seg[2]" LOC = P105;
+NET "st_seg[2]" IOSTANDARD = LVTTL;
+NET "st_seg[3]" LOC = P102;
+NET "st_seg[3]" IOSTANDARD = LVTTL;
+NET "st_seg[4]" LOC = P101;
+NET "st_seg[4]" IOSTANDARD = LVTTL;
+NET "st_seg[5]" LOC = P117;
+NET "st_seg[5]" IOSTANDARD = LVTTL;
+NET "st_seg[6]" LOC = P111;
+NET "st_seg[6]" IOSTANDARD = LVTTL;
+NET "st_seg[7]" LOC = P104;
+NET "st_seg[7]" IOSTANDARD = LVTTL;
 
 ####################################################################################
 # Constraints from file : 'mojo.ucf'

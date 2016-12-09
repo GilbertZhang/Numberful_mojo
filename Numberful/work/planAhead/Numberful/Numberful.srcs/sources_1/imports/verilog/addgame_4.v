@@ -11,8 +11,10 @@ module addgame_4 (
     input buttondown,
     input buttonleft,
     input buttonright,
-    input [63:0] sixteen,
-    output reg [63:0] segment_display
+    input [79:0] sixteen,
+    output reg [79:0] segment_display,
+    output reg [4:0] current,
+    output reg [19:0] steps
   );
   
   
@@ -26,10 +28,10 @@ module addgame_4 (
   localparam END_addtozero = 3'd6;
   
   reg [2:0] M_addtozero_d, M_addtozero_q = BEGIN_addtozero;
-  wire [4-1:0] M_reg_position_out;
+  wire [5-1:0] M_reg_position_out;
   reg [1-1:0] M_reg_position_en;
-  reg [4-1:0] M_reg_position_data;
-  register_10 reg_position (
+  reg [5-1:0] M_reg_position_data;
+  register_11 reg_position (
     .clk(clk),
     .rst(rst),
     .en(M_reg_position_en),
@@ -39,93 +41,121 @@ module addgame_4 (
   wire [16-1:0] M_reg_step_out;
   reg [1-1:0] M_reg_step_en;
   reg [16-1:0] M_reg_step_data;
-  register_11 reg_step (
+  register_12 reg_step (
     .clk(clk),
     .rst(rst),
     .en(M_reg_step_en),
     .data(M_reg_step_data),
     .out(M_reg_step_out)
   );
-  wire [(5'h10+0)*4-1:0] M_reg_out;
+  wire [(5'h10+0)*5-1:0] M_reg_out;
   reg [(5'h10+0)-1:0] M_reg_en;
-  reg [(5'h10+0)*4-1:0] M_reg_data;
+  reg [(5'h10+0)*5-1:0] M_reg_data;
   
   genvar GEN_reg0;
   generate
   for (GEN_reg0=0;GEN_reg0<5'h10;GEN_reg0=GEN_reg0+1) begin: reg_gen_0
-    register_10 L_reg (
+    register_11 L_reg (
       .clk(clk),
       .rst(rst),
       .en(M_reg_en[GEN_reg0*(1)+(1)-1-:(1)]),
-      .data(M_reg_data[GEN_reg0*(3'h4)+(3'h4)-1-:(3'h4)]),
-      .out(M_reg_out[GEN_reg0*(3'h4)+(3'h4)-1-:(3'h4)])
+      .data(M_reg_data[GEN_reg0*(3'h5)+(3'h5)-1-:(3'h5)]),
+      .out(M_reg_out[GEN_reg0*(3'h5)+(3'h5)-1-:(3'h5)])
     );
   end
   endgenerate
+  wire [4-1:0] M_zeronumber_out;
+  reg [4-1:0] M_zeronumber_data;
+  register_14 zeronumber (
+    .clk(clk),
+    .rst(rst),
+    .en(1'h1),
+    .data(M_zeronumber_data),
+    .out(M_zeronumber_out)
+  );
+  wire [20-1:0] M_dec_ctr_digits;
+  reg [1-1:0] M_dec_ctr_inc;
+  multi_dec_ctr_15 dec_ctr (
+    .clk(clk),
+    .rst(rst),
+    .inc(M_dec_ctr_inc),
+    .digits(M_dec_ctr_digits)
+  );
   wire [1-1:0] M_edge_detectorup_out;
   reg [1-1:0] M_edge_detectorup_in;
-  edge_detector_13 edge_detectorup (
+  edge_detector_16 edge_detectorup (
     .clk(clk),
     .in(M_edge_detectorup_in),
     .out(M_edge_detectorup_out)
   );
   wire [1-1:0] M_button_condup_out;
   reg [1-1:0] M_button_condup_in;
-  button_conditioner_14 button_condup (
+  button_conditioner_17 button_condup (
     .clk(clk),
     .in(M_button_condup_in),
     .out(M_button_condup_out)
   );
   wire [1-1:0] M_edge_detectordown_out;
   reg [1-1:0] M_edge_detectordown_in;
-  edge_detector_13 edge_detectordown (
+  edge_detector_16 edge_detectordown (
     .clk(clk),
     .in(M_edge_detectordown_in),
     .out(M_edge_detectordown_out)
   );
   wire [1-1:0] M_button_conddown_out;
   reg [1-1:0] M_button_conddown_in;
-  button_conditioner_14 button_conddown (
+  button_conditioner_17 button_conddown (
     .clk(clk),
     .in(M_button_conddown_in),
     .out(M_button_conddown_out)
   );
   wire [1-1:0] M_edge_detectoruleft_out;
   reg [1-1:0] M_edge_detectoruleft_in;
-  edge_detector_13 edge_detectoruleft (
+  edge_detector_16 edge_detectoruleft (
     .clk(clk),
     .in(M_edge_detectoruleft_in),
     .out(M_edge_detectoruleft_out)
   );
   wire [1-1:0] M_button_condleft_out;
   reg [1-1:0] M_button_condleft_in;
-  button_conditioner_14 button_condleft (
+  button_conditioner_17 button_condleft (
     .clk(clk),
     .in(M_button_condleft_in),
     .out(M_button_condleft_out)
   );
   wire [1-1:0] M_edge_detectorright_out;
   reg [1-1:0] M_edge_detectorright_in;
-  edge_detector_13 edge_detectorright (
+  edge_detector_16 edge_detectorright (
     .clk(clk),
     .in(M_edge_detectorright_in),
     .out(M_edge_detectorright_out)
   );
   wire [1-1:0] M_button_condright_out;
   reg [1-1:0] M_button_condright_in;
-  button_conditioner_14 button_condright (
+  button_conditioner_17 button_condright (
     .clk(clk),
     .in(M_button_condright_in),
     .out(M_button_condright_out)
   );
   
-  reg [3:0] position_temp;
+  wire [8-1:0] M_alu_out;
+  reg [8-1:0] M_alu_a;
+  reg [8-1:0] M_alu_b;
+  reg [6-1:0] M_alu_alufn;
+  alu_24 alu (
+    .a(M_alu_a),
+    .b(M_alu_b),
+    .alufn(M_alu_alufn),
+    .out(M_alu_out)
+  );
+  
+  reg [4:0] position_temp;
   
   reg [15:0] step_temp;
   
-  reg [3:0] next_step;
+  reg [4:0] next_step;
   
-  reg [3:0] counter_zero;
+  reg [4:0] counter_zero;
   
   integer i;
   
@@ -139,6 +169,10 @@ module addgame_4 (
     M_reg_step_data = 1'h0;
     segment_display = M_reg_out;
     M_reg_data = sixteen;
+    current = M_reg_position_out;
+    M_zeronumber_data = 1'h0;
+    M_dec_ctr_inc = 1'h0;
+    steps = M_dec_ctr_digits;
     M_button_condup_in = ~buttonup;
     M_button_conddown_in = ~buttondown;
     M_button_condleft_in = ~buttonleft;
@@ -147,6 +181,9 @@ module addgame_4 (
     M_edge_detectordown_in = M_button_conddown_out;
     M_edge_detectoruleft_in = M_button_condleft_out;
     M_edge_detectorright_in = M_button_condright_out;
+    M_alu_a = 1'h0;
+    M_alu_b = 1'h0;
+    M_alu_alufn = 6'h00;
     
     case (M_addtozero_q)
       BEGIN_addtozero: begin
@@ -162,6 +199,10 @@ module addgame_4 (
         M_reg_data = M_reg_out;
         M_reg_position_data = M_reg_position_out;
         M_reg_step_data = M_reg_step_out;
+        M_zeronumber_data = M_zeronumber_out;
+        if (M_zeronumber_out == 4'hf) begin
+          M_addtozero_d = END_addtozero;
+        end
         if (M_edge_detectorup_out) begin
           M_addtozero_d = UP_addtozero;
         end
@@ -181,7 +222,10 @@ module addgame_4 (
         if (position_temp < 4'hc) begin
           M_reg_en[(position_temp)*1+0-:1] = 1'h1;
           M_reg_en[(position_temp + 3'h4)*1+0-:1] = 1'h1;
-          next_step = M_reg_out[(position_temp + 3'h4)*4+3-:4] + M_reg_out[(position_temp)*4+3-:4];
+          M_alu_alufn = 6'h00;
+          M_alu_a = M_reg_out[(position_temp + 3'h4)*5+4-:5];
+          M_alu_b = M_reg_out[(position_temp)*5+4-:5];
+          next_step = M_alu_out;
           if (next_step > 4'h9) begin
             if (next_step > 5'h13) begin
               if (next_step == 5'h1e) begin
@@ -191,24 +235,36 @@ module addgame_4 (
             end
             next_step = next_step - 4'ha;
           end
-          if (M_reg_out[(position_temp + 3'h4)*4+3-:4] == 1'h0) begin
-            M_reg_data[(position_temp)*4+3-:4] = 1'h0;
+          M_reg_data = M_reg_out;
+          if (M_reg_out[(M_reg_position_out + 3'h4)*5+4-:5] == 1'h0) begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = 1'h0;
+          end else begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = M_reg_out[(M_reg_position_out)*5+4-:5];
           end
-          M_reg_data[(position_temp + 3'h4)*4+3-:4] = next_step;
+          M_reg_data[(M_reg_position_out + 3'h4)*5+4-:5] = next_step;
           M_reg_position_data = position_temp + 3'h4;
           M_reg_step_en = 1'h1;
           step_temp = M_reg_step_out;
           M_reg_step_data = step_temp + 1'h1;
+          M_zeronumber_data = M_zeronumber_out;
+          if (next_step == 1'h0) begin
+            M_zeronumber_data = M_zeronumber_out + 1'h1;
+          end
+          M_dec_ctr_inc = 1'h1;
+        end else begin
+          M_reg_data = M_reg_out;
+          M_reg_position_data = M_reg_position_out;
+          M_zeronumber_data = M_zeronumber_out;
+          M_reg_step_data = M_reg_step_out;
         end
         M_addtozero_d = SELECT_addtozero;
       end
       DOWN_addtozero: begin
-        position_temp = M_reg_position_out;
         M_reg_position_en = 1'h1;
-        if (position_temp > 2'h3) begin
-          M_reg_en[(position_temp)*1+0-:1] = 1'h1;
-          M_reg_en[(position_temp - 3'h4)*1+0-:1] = 1'h1;
-          next_step = M_reg_out[(position_temp - 3'h4)*4+3-:4] + M_reg_out[(position_temp)*4+3-:4];
+        if (M_reg_position_out > 2'h3) begin
+          M_reg_en[(M_reg_position_out)*1+0-:1] = 1'h1;
+          M_reg_en[(M_reg_position_out - 3'h4)*1+0-:1] = 1'h1;
+          next_step = M_reg_out[(M_reg_position_out - 3'h4)*5+4-:5] + M_reg_out[(M_reg_position_out)*5+4-:5];
           if (next_step > 4'h9) begin
             if (next_step > 5'h13) begin
               if (next_step == 5'h1e) begin
@@ -218,14 +274,30 @@ module addgame_4 (
             end
             next_step = next_step - 4'ha;
           end
-          if (M_reg_out[(position_temp - 3'h4)*4+3-:4] == 1'h0) begin
-            M_reg_data[(position_temp)*4+3-:4] = 1'h0;
+          M_reg_data = M_reg_out;
+          if (M_reg_out[(M_reg_position_out - 3'h4)*5+4-:5] == 1'h0) begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = 1'h0;
+          end else begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = M_reg_out[(M_reg_position_out)*5+4-:5];
           end
-          M_reg_data[(position_temp - 3'h4)*4+3-:4] = next_step;
-          M_reg_position_data = position_temp - 3'h4;
+          M_reg_data[(M_reg_position_out - 3'h4)*5+4-:5] = next_step;
+          M_alu_a = M_reg_position_out;
+          M_alu_b = 4'h4;
+          M_alu_alufn = 6'h01;
+          M_reg_position_data = M_alu_out;
           M_reg_step_en = 1'h1;
           step_temp = M_reg_step_out;
           M_reg_step_data = step_temp + 1'h1;
+          M_zeronumber_data = M_zeronumber_out;
+          if (next_step == 1'h0) begin
+            M_zeronumber_data = M_zeronumber_out + 1'h1;
+          end
+          M_dec_ctr_inc = 1'h1;
+        end else begin
+          M_reg_data = M_reg_out;
+          M_reg_position_data = M_reg_position_out;
+          M_zeronumber_data = M_zeronumber_out;
+          M_reg_step_data = M_reg_step_out;
         end
         M_addtozero_d = SELECT_addtozero;
       end
@@ -235,8 +307,11 @@ module addgame_4 (
         if (position_temp != 2'h3 && position_temp != 3'h7 && position_temp != 4'hb && position_temp != 4'hf) begin
           M_reg_en[(position_temp)*1+0-:1] = 1'h1;
           M_reg_en[(position_temp + 1'h1)*1+0-:1] = 1'h1;
-          next_step = M_reg_out[(position_temp + 1'h1)*4+3-:4] + M_reg_out[(position_temp)*4+3-:4];
-          if (next_step > 4'h9) begin
+          next_step = M_reg_out[(position_temp + 1'h1)*5+4-:5] + M_reg_out[(position_temp)*5+4-:5];
+          M_alu_a = 4'h9;
+          M_alu_b = next_step;
+          M_alu_alufn = 6'h35;
+          if (M_alu_out[0+0-:1]) begin
             if (next_step > 5'h13) begin
               if (next_step == 5'h1e) begin
                 next_step = next_step - 4'ha;
@@ -245,14 +320,27 @@ module addgame_4 (
             end
             next_step = next_step - 4'ha;
           end
-          if (M_reg_out[(position_temp + 1'h1)*4+3-:4] == 1'h0) begin
-            M_reg_data[(position_temp)*4+3-:4] = 1'h0;
+          M_reg_data = M_reg_out;
+          if (M_reg_out[(M_reg_position_out + 1'h1)*5+4-:5] == 1'h0) begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = 1'h0;
+          end else begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = M_reg_out[(M_reg_position_out)*5+4-:5];
           end
-          M_reg_data[(position_temp + 1'h1)*4+3-:4] = next_step;
+          M_reg_data[(M_reg_position_out + 1'h1)*5+4-:5] = next_step;
           M_reg_position_data = position_temp + 1'h1;
           M_reg_step_en = 1'h1;
           step_temp = M_reg_step_out;
           M_reg_step_data = step_temp + 1'h1;
+          M_zeronumber_data = M_zeronumber_out;
+          if (next_step == 1'h0) begin
+            M_zeronumber_data = M_zeronumber_out + 1'h1;
+          end
+          M_dec_ctr_inc = 1'h1;
+        end else begin
+          M_reg_data = M_reg_out;
+          M_reg_position_data = M_reg_position_out;
+          M_zeronumber_data = M_zeronumber_out;
+          M_reg_step_data = M_reg_step_out;
         end
         M_addtozero_d = SELECT_addtozero;
       end
@@ -262,7 +350,7 @@ module addgame_4 (
         if (position_temp != 1'h0 && position_temp != 3'h4 && position_temp != 4'h8 && position_temp != 4'hc) begin
           M_reg_en[(position_temp)*1+0-:1] = 1'h1;
           M_reg_en[(position_temp - 1'h1)*1+0-:1] = 1'h1;
-          next_step = M_reg_out[(position_temp - 1'h1)*4+3-:4] + M_reg_out[(position_temp)*4+3-:4];
+          next_step = M_reg_out[(position_temp - 1'h1)*5+4-:5] + M_reg_out[(position_temp)*5+4-:5];
           if (next_step > 4'h9) begin
             if (next_step > 5'h13) begin
               if (next_step == 5'h1e) begin
@@ -272,21 +360,34 @@ module addgame_4 (
             end
             next_step = next_step - 4'ha;
           end
-          if (M_reg_out[(position_temp - 1'h1)*4+3-:4] == 1'h0) begin
-            M_reg_data[(position_temp)*4+3-:4] = 1'h0;
+          M_reg_data = M_reg_out;
+          if (M_reg_out[(M_reg_position_out - 1'h1)*5+4-:5] == 1'h0) begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = 1'h0;
+          end else begin
+            M_reg_data[(M_reg_position_out)*5+4-:5] = M_reg_out[(M_reg_position_out)*5+4-:5];
           end
-          M_reg_data[(position_temp - 1'h1)*4+3-:4] = next_step;
+          M_reg_data[(M_reg_position_out - 1'h1)*5+4-:5] = next_step;
           M_reg_position_data = position_temp - 1'h1;
           M_reg_step_en = 1'h1;
           step_temp = M_reg_step_out;
           M_reg_step_data = step_temp + 1'h1;
+          M_zeronumber_data = M_zeronumber_out;
+          if (next_step == 1'h0) begin
+            M_zeronumber_data = M_zeronumber_out + 1'h1;
+          end
+          M_dec_ctr_inc = 1'h1;
+        end else begin
+          M_reg_data = M_reg_out;
+          M_reg_position_data = M_reg_position_out;
+          M_zeronumber_data = M_zeronumber_out;
+          M_reg_step_data = M_reg_step_out;
         end
         M_addtozero_d = SELECT_addtozero;
       end
       END_addtozero: begin
-        M_reg_position_en = 1'h0;
-        M_reg_step_en = 1'h0;
-        M_reg_en[0+15-:16] = 16'h0000;
+        M_reg_data = 80'hc0000000000000000000;
+        M_reg_step_data = M_reg_step_out;
+        M_reg_position_data = M_reg_position_out;
       end
     endcase
   end

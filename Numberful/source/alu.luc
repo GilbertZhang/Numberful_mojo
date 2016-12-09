@@ -1,0 +1,38 @@
+module alu #(
+    DIGITS = 8
+  )(
+    input a[DIGITS],
+    input b[DIGITS],
+    input alufn[6],
+    output out[DIGITS]
+  ) {
+  
+  // assemble submodules to alu
+  .a(a){
+    .b(b){
+  boolean my_boolean(.alufn(alufn[3:0]));
+  adder my_adder(.alufn(alufn[0]));
+  comparator my_comparator(.alufn(alufn[2:0]));
+  shift my_shift(.alufn(alufn[1:0]));
+  multiplier my_mul(.alufn(alufn[1:0]));
+  mod my_mod(.alufn(alufn[2:0]));
+    }
+  }
+  
+  always {
+    out = 0;
+    case(alufn[5:4]){
+      2b00: // add, subtract, multiply, divide
+        if (alufn[2] == 1) out = my_mod.out;
+        else if (alufn[1] == 1) out = my_mul.out;
+        else out = my_adder.out;
+      2b01: // boolean
+        out = my_boolean.out;
+      2b10: // shifting
+        out = my_shift.out;
+      2b11: // comparison
+        out = my_comparator.out;
+      default: out = 0;
+    }
+  }
+}

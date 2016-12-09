@@ -11,35 +11,35 @@
      TOP = DIGITS-1
      UP = 1
 */
-module counter_5 (
+module counter_25 (
     input clk,
     input rst,
-    output reg [3:0] value
+    output reg [1:0] value
   );
   
-  localparam SIZE = 3'h4;
-  localparam DIV = 4'h8;
-  localparam TOP = 6'h0f;
+  localparam SIZE = 2'h2;
+  localparam DIV = 5'h10;
+  localparam TOP = 4'h3;
   localparam UP = 1'h1;
   
   
-  reg [11:0] M_ctr_d, M_ctr_q = 1'h0;
+  reg [17:0] M_ctr_d, M_ctr_q = 1'h0;
   
-  localparam MAX_VALUE = 14'h0fff;
+  localparam MAX_VALUE = 20'h3ffff;
   
   always @* begin
     M_ctr_d = M_ctr_q;
     
-    value = M_ctr_q[8+3-:4];
+    value = M_ctr_q[16+1-:2];
     if (1'h1) begin
       M_ctr_d = M_ctr_q + 1'h1;
-      if (1'h1 && M_ctr_q == 14'h0fff) begin
+      if (1'h1 && M_ctr_q == 20'h3ffff) begin
         M_ctr_d = 1'h0;
       end
     end else begin
       M_ctr_d = M_ctr_q - 1'h1;
       if (1'h1 && M_ctr_q == 1'h0) begin
-        M_ctr_d = 14'h0fff;
+        M_ctr_d = 20'h3ffff;
       end
     end
   end

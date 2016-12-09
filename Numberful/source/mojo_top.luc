@@ -16,7 +16,9 @@ module mojo_top (
     input buttonleft,
     input buttonright,
     output io_seg[8],
-    output io_sel[16]
+    output io_sel[16],
+    output st_sel[4],
+    output st_seg[8]
     
   ) {
   
@@ -31,10 +33,10 @@ module mojo_top (
       multi_seven_seg seg;        // button press counter
       pseudorandomnumber pseudorandomnumber;
       addgame addgame(.buttondown(buttondown),.buttonup(buttonup),.buttonleft(buttonleft),.buttonright(buttonright));
-      
-      
+      multi_seven_seg step_seg(#DIGITS(4),#DIV(16));
     }
   }
+ 
   
   always {
     reset_cond.in = ~rst_n;   // input raw inverted reset signal
@@ -45,15 +47,21 @@ module mojo_top (
     avr_rx = bz;              // not using serial port
     led = 8h00;
     
-    
     //addgame.sixteen = pseudorandomnumber.sixteen;
-    addgame.sixteen = {4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1,4h1};
+    addgame.sixteen = {5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1,5h1};
     seg.values = addgame.segment_display;
     //seg.values = pseudorandomnumber.sixteen;
     //seg.values = {4h1,4h2,4h3,4h4,4h5,4h6,4h7,4h8,4h9,4h0,4h1,4h2,4h3,4h4,4h5,4h6};
- 
+    
+    //blink.digit = addgame.segment_display[addgame.current];
+    seg.values[addgame.current] = addgame.segment_display[addgame.current] + 16;
    
     io_seg = ~seg.seg;
     io_sel = ~seg.sel;
+    
+    step_seg.values = addgame.steps;
+    //step_seg.values = {5h5,5h6,5h7,5h8};
+    st_seg = ~step_seg.seg;
+    st_sel = ~step_seg.sel;
   }
 }

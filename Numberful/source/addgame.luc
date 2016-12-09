@@ -5,18 +5,28 @@ module addgame (
     input buttondown,
     input buttonleft,
     input buttonright,
-    input sixteen[16][4],
-    output segment_display[16][4]
+    input sixteen[16][5],
+    output segment_display[16][5],
+    output current[5],
+    output steps[4][5]
   ) {
    
   .clk(clk){
     .rst(rst){
       fsm addtozero={BEGIN,SELECT,UP,DOWN,LEFT,RIGHT,END};
-      register reg_position(#WIDTH(4));
+      register reg_position(#WIDTH(5));
       register reg_step(#WIDTH(16));
-      register reg[16](#WIDTH(4));
-
+      register reg[16](#WIDTH(5));
+      
+      register zeronumber(#WIDTH(4),.en(1));
+      
+      //register regA(#WIDTH(8),.en(1));
+      //register regB(#WIDTH(8),.en(1));
+      
+      multi_dec_ctr dec_ctr(#DIGITS(4));
+      
     }
+    
     edge_detector edge_detectorup(#RISE(1),#FALL(0));
     button_conditioner button_condup;
     edge_detector edge_detectordown(#RISE(1),#FALL(0));
@@ -27,10 +37,12 @@ module addgame (
     button_conditioner button_condright;
   }
   
-  sig position_temp[4];
+  alu alu;
+  
+  sig position_temp[5];
   sig step_temp[16];
-  sig next_step[4];
-  sig counter_zero[4];
+  sig next_step[5];
+  sig counter_zero[5];
   var i;
 
   
@@ -45,6 +57,14 @@ module addgame (
     
     segment_display = reg.out;
     reg.data = sixteen;
+    
+    current = reg_position.out;
+
+    zeronumber.data = 0;
+        
+    dec_ctr.inc = 0;
+    steps = dec_ctr.digits;
+    
     button_condup.in = ~buttonup;
     button_conddown.in = ~buttondown;
     button_condleft.in = ~buttonleft;
@@ -54,6 +74,10 @@ module addgame (
     edge_detectordown.in = button_conddown.out;
     edge_detectoruleft.in = button_condleft.out;
     edge_detectorright.in = button_condright.out;
+    
+    alu.a = 0;
+    alu.b = 0;
+    alu.alufn = 6b000000;
 
     case(addtozero.q){
       
@@ -85,6 +109,12 @@ module addgame (
         reg_position.data = reg_position.out;
         reg_step.data = reg_step.out;
         
+        zeronumber.data = zeronumber.out;
+        
+        if(zeronumber.out == 15){
+          addtozero.d = addtozero.END;
+        }
+        
         if(edge_detectorup.out){
           addtozero.d = addtozero.UP;
         }
@@ -106,7 +136,12 @@ module addgame (
           
           reg.en[position_temp] = 1;
           reg.en[position_temp+4] = 1;
-          next_step = reg.out[position_temp+4] + reg.out[position_temp];
+          //next_step = reg.out[position_temp+4] + reg.out[position_temp];
+ // using the add function here//////////////////////////////////////////////////////
+          alu.alufn = 6b000000;
+          alu.a = reg.out[position_temp+4];
+          alu.b = reg.out[position_temp];
+          next_step = alu.out;
           
           if(next_step > 9){
               if(next_step > 19){
@@ -117,16 +152,31 @@ module addgame (
               }
               next_step = next_step - 10;
             }
-          if(reg.out[position_temp+4] == 0){
-            reg.data[position_temp] = 0;// if next postion is 0, the current position should change to 0
-          }
-          reg.data[position_temp+4] = next_step; //next position equals to the sum
+          reg.data=reg.out;
+          if(reg.out[reg_position.out+4] == 0){
+            reg.data[reg_position.out] = 0;// if next postion is 0, the current position should change to 0
+          }else{reg.data[reg_position.out]=reg.out[reg_position.out];}
+          
+
+          reg.data[reg_position.out+4] = next_step; //next position equals to the sum
           
           // update the postion and steps
           reg_position.data = position_temp + 4;
           reg_step.en = 1;
           step_temp = reg_step.out;
           reg_step.data = step_temp + 1;
+          
+          zeronumber.data = zeronumber.out;
+          if(next_step ==0){
+            zeronumber.data = zeronumber.out + 1;
+          }
+          
+          dec_ctr.inc = 1;
+        }else{
+          reg.data=reg.out;
+          reg_position.data=reg_position.out;
+          zeronumber.data = zeronumber.out;
+          reg_step.data = reg_step.out;
         }
         //reg.data = {4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0,4h0};
         addtozero.d = addtozero.SELECT;
@@ -135,13 +185,13 @@ module addgame (
         
         // moving down
         addtozero.DOWN:
-        position_temp = reg_position.out;
+        
         reg_position.en = 1;
-        if(position_temp > 3){
+        if(reg_position.out > 3){
           
-          reg.en[position_temp] = 1;
-          reg.en[position_temp-4] = 1;
-          next_step = reg.out[position_temp-4] + reg.out[position_temp];
+          reg.en[reg_position.out] = 1;
+          reg.en[reg_position.out-4] = 1;
+          next_step = reg.out[reg_position.out-4] + reg.out[reg_position.out];
           
           if(next_step > 9){
               if(next_step > 19){
@@ -152,18 +202,38 @@ module addgame (
               }
               next_step = next_step - 10;
             }
+          reg.data=reg.out;
+          if(reg.out[reg_position.out-4] == 0){
+            reg.data[reg_position.out] = 0;// if next postion is 0, the current position should change to 0
+          }else{reg.data[reg_position.out]=reg.out[reg_position.out];}
           
-          if(reg.out[position_temp-4] == 0){
-            reg.data[position_temp] = 0;// if next postion is 0, the current position should change to 0
-          }
-          reg.data[position_temp-4] = next_step; //next position equals to the sum
- 
+          reg.data[reg_position.out-4] = next_step; //next position equals to the sum
+          
           // update the postion and steps
-          reg_position.data = position_temp - 4;
+ ////using the subtraction function /////////////////////////////////////////////////////////////////
+          alu.a = reg_position.out;
+          alu.b =  4h4;
+          alu.alufn = 6b000001;
+          reg_position.data = alu.out;
+          //reg_position.data = reg_position.out - 4;
+          
           reg_step.en = 1;
           step_temp = reg_step.out;
           reg_step.data = step_temp + 1;
+          
+          zeronumber.data = zeronumber.out;
+          if(next_step ==0){
+            zeronumber.data = zeronumber.out + 1;
+          }
+          
+          dec_ctr.inc = 1;
+        }else{
+          reg.data=reg.out;
+          reg_position.data=reg_position.out;
+          zeronumber.data = zeronumber.out;
+          reg_step.data = reg_step.out;
         }
+        
         addtozero.d = addtozero.SELECT;
         
         
@@ -179,7 +249,13 @@ module addgame (
           reg.en[position_temp+1] = 1;
           next_step = reg.out[position_temp+1] + reg.out[position_temp];
           
-          if(next_step > 9){
+ ///using the comapre alu function here/////////////////////////////////////////
+          alu.a = 4h9;
+          alu.b = next_step;
+          alu.alufn = 6b110101;
+          
+          //if(next_step > 9){
+          if(alu.out[0]){
               if(next_step > 19){
                 if(next_step == 30){
                   next_step = next_step - 10;
@@ -189,16 +265,30 @@ module addgame (
               next_step = next_step - 10;
             }
           
-          if(reg.out[position_temp+1] == 0){
-            reg.data[position_temp] = 0;// if next postion is 0, the current position should change to 0
-          }
-          reg.data[position_temp+1] = next_step; //next position equals to the sum
+          reg.data=reg.out;
+          if(reg.out[reg_position.out+1] == 0){
+            reg.data[reg_position.out] = 0;// if next postion is 0, the current position should change to 0
+          }else{reg.data[reg_position.out]=reg.out[reg_position.out];}
+
+          reg.data[reg_position.out+1] = next_step; //next position equals to the sum
 
           // update the postion and steps
           reg_position.data = position_temp + 1;
           reg_step.en = 1;
           step_temp = reg_step.out;
           reg_step.data = step_temp + 1;
+          
+          zeronumber.data = zeronumber.out;
+          if(next_step ==0){
+            zeronumber.data = zeronumber.out + 1;
+          }
+          
+          dec_ctr.inc = 1;
+        }else{
+          reg.data=reg.out;
+          reg_position.data=reg_position.out;
+          zeronumber.data = zeronumber.out;
+          reg_step.data = reg_step.out;
         }
         addtozero.d = addtozero.SELECT;
         
@@ -224,24 +314,40 @@ module addgame (
               next_step = next_step - 10;
             }
           
-          if(reg.out[position_temp-1] == 0){
-            reg.data[position_temp] = 0;// if next postion is 0, the current position should change to 0
-          }
-          reg.data[position_temp-1] = next_step; //next position equals to the sum
+          reg.data=reg.out;
+          if(reg.out[reg_position.out-1] == 0){
+            reg.data[reg_position.out] = 0;// if next postion is 0, the current position should change to 0
+          }else{reg.data[reg_position.out]=reg.out[reg_position.out];}
+          
+
+          reg.data[reg_position.out-1] = next_step; //next position equals to the sum
 
           // update the postion and steps
           reg_position.data = position_temp - 1;
           reg_step.en = 1;
           step_temp = reg_step.out;
           reg_step.data = step_temp + 1;
+          
+          zeronumber.data = zeronumber.out;
+          if(next_step ==0){
+            zeronumber.data = zeronumber.out + 1;
+          }
+          
+          dec_ctr.inc = 1;
+        }else{
+          reg.data=reg.out;
+          reg_position.data=reg_position.out;
+          zeronumber.data = zeronumber.out;
+          reg_step.data = reg_step.out;
         }
         addtozero.d = addtozero.SELECT;
         
         
       addtozero.END:
-        reg_position.en = 0;
-        reg_step.en = 0;
-        reg.en[15:0] = 16h0;
+        reg.data = {5h18,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0,5h0};
+        reg_step.data = reg_step.out;
+        reg_position.data = reg_position.out;
+        
         
       
       

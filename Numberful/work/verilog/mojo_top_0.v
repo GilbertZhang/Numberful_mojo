@@ -22,7 +22,9 @@ module mojo_top_0 (
     input buttonleft,
     input buttonright,
     output reg [7:0] io_seg,
-    output reg [15:0] io_sel
+    output reg [15:0] io_sel,
+    output reg [3:0] st_sel,
+    output reg [7:0] st_seg
   );
   
   
@@ -36,9 +38,9 @@ module mojo_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [7-1:0] M_seg_seg;
+  wire [8-1:0] M_seg_seg;
   wire [16-1:0] M_seg_sel;
-  reg [64-1:0] M_seg_values;
+  reg [80-1:0] M_seg_values;
   multi_seven_seg_2 seg (
     .clk(clk),
     .rst(rst),
@@ -52,8 +54,10 @@ module mojo_top_0 (
     .rst(rst),
     .sixteen(M_pseudorandomnumber_sixteen)
   );
-  wire [64-1:0] M_addgame_segment_display;
-  reg [64-1:0] M_addgame_sixteen;
+  wire [80-1:0] M_addgame_segment_display;
+  wire [5-1:0] M_addgame_current;
+  wire [20-1:0] M_addgame_steps;
+  reg [80-1:0] M_addgame_sixteen;
   addgame_4 addgame (
     .clk(clk),
     .rst(rst),
@@ -62,7 +66,19 @@ module mojo_top_0 (
     .buttonleft(buttonleft),
     .buttonright(buttonright),
     .sixteen(M_addgame_sixteen),
-    .segment_display(M_addgame_segment_display)
+    .segment_display(M_addgame_segment_display),
+    .current(M_addgame_current),
+    .steps(M_addgame_steps)
+  );
+  wire [8-1:0] M_step_seg_seg;
+  wire [4-1:0] M_step_seg_sel;
+  reg [20-1:0] M_step_seg_values;
+  multi_seven_seg_5 step_seg (
+    .clk(clk),
+    .rst(rst),
+    .values(M_step_seg_values),
+    .seg(M_step_seg_seg),
+    .sel(M_step_seg_sel)
   );
   
   always @* begin
@@ -72,9 +88,13 @@ module mojo_top_0 (
     spi_channel = 4'bzzzz;
     avr_rx = 1'bz;
     led = 8'h00;
-    M_addgame_sixteen = 64'h1111111111111111;
+    M_addgame_sixteen = 80'h08421084210842108421;
     M_seg_values = M_addgame_segment_display;
+    M_seg_values[(M_addgame_current)*5+4-:5] = M_addgame_segment_display[(M_addgame_current)*5+4-:5] + 5'h10;
     io_seg = ~M_seg_seg;
     io_sel = ~M_seg_sel;
+    M_step_seg_values = M_addgame_steps;
+    st_seg = ~M_step_seg_seg;
+    st_sel = ~M_step_seg_sel;
   end
 endmodule

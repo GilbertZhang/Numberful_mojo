@@ -1,0 +1,21 @@
+module blink (
+    input clk,  // clock
+    input rst,  // reset
+    input digit[4],
+    output blink[4],
+    output hold[27]
+  ) {
+
+  dff counter[26](.clk(clk), .rst(rst));
+  dff holder[27](.clk(clk),.rst(rst));
+  always {
+    //blink = counter.q[24];
+    blink = digit;
+    if(counter.q == 0){
+       blink = 1;
+    }
+    counter.d = counter.q + 1;
+    hold = holder.q[26:0];
+    holder.d = holder.q + 1;
+  }
+}

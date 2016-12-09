@@ -1,6 +1,6 @@
 module seven_seg (
-    input char[4],
-    output segs[7]
+    input char[5],
+    output segs[8]
   ) {
  
   always {
@@ -18,23 +18,40 @@ module seven_seg (
       //default: segs = 7b0000000;
       
       
-      0: segs = 7b1000000;
-      1: segs = 7b1111001;
-      2: segs = 7b0100100;
-      3: segs = 7b0110000;
-      4: segs = 7b0011001;
-      5: segs = 7b0010010;
-      6: segs = 7b0000010;
-      7: segs = 7b1111000;
-      8: segs = 7b0000000;
-      9: segs = 7b0011000;
-      10: segs = 7b1000000;
-      11: segs = 7b1111001;
-      12: segs = 7b0100100;
-      13: segs = 7b0110000;
-      14: segs = 7b0011001;
-      15: segs = 7b0010010;
-      default: segs = 7b1111111;
+      0: segs = 8b11000000;
+      1: segs = 8b11111001;
+      2: segs = 8b10100100;
+      3: segs = 8b10110000;
+      4: segs = 8b10011001;
+      5: segs = 8b10010010;
+      6: segs = 8b10000010;
+      7: segs = 8b11111000;
+      8: segs = 8b10000000;
+      9: segs = 8b10011000;
+      10: segs = 8b11000000;
+      11: segs = 8b11111001;
+      12: segs = 8b10100100;
+      13: segs = 8b10110000;
+      14: segs = 8b10011001;
+      15: segs = 8b10010010;
+      
+      16: segs = 8b01000000;
+      17: segs = 8b01111001;
+      18: segs = 8b00100100;
+      19: segs = 8b00110000;
+      20: segs = 8b00011001;
+      21: segs = 8b00010010;
+      22: segs = 8b00000010;
+      23: segs = 8b01111000;
+      24: segs = 8b00000000;
+      25: segs = 8b00011000;
+      26: segs = 8b01000000;
+      27: segs = 8b01111001;
+      28: segs = 8b00100100;
+      29: segs = 8b00110000;
+      30: segs = 8b00011001;
+      31: segs = 8b00010010;
+      default: segs = 8b11111111;
     }
   }
 }

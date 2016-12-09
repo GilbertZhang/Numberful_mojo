@@ -15,7 +15,7 @@ module pseudorandomnumber_3 (
   wire [32-1:0] M_pn_gen1_num;
   reg [1-1:0] M_pn_gen1_next;
   reg [32-1:0] M_pn_gen1_seed;
-  pn_gen_8 pn_gen1 (
+  pn_gen_9 pn_gen1 (
     .clk(clk),
     .rst(rst),
     .next(M_pn_gen1_next),
@@ -26,7 +26,7 @@ module pseudorandomnumber_3 (
   wire [32-1:0] M_pn_gen2_num;
   reg [1-1:0] M_pn_gen2_next;
   reg [32-1:0] M_pn_gen2_seed;
-  pn_gen_8 pn_gen2 (
+  pn_gen_9 pn_gen2 (
     .clk(clk),
     .rst(rst),
     .next(M_pn_gen2_next),
@@ -54,12 +54,12 @@ module pseudorandomnumber_3 (
   end
   
   always @(posedge clk) begin
-    M_seed2_q <= M_seed2_d;
+    M_seed1_q <= M_seed1_d;
   end
   
   
   always @(posedge clk) begin
-    M_seed1_q <= M_seed1_d;
+    M_seed2_q <= M_seed2_d;
   end
   
 endmodule

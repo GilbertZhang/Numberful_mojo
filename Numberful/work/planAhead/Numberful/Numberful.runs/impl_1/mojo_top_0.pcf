@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Dec 08 15:45:35 2016
+// Written by: Map P.20131013 on Fri Dec 09 11:27:03 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -36,8 +36,20 @@ COMP "led[5]" LOCATE = SITE "P126" LEVEL 1;
 COMP "led[6]" LOCATE = SITE "P124" LEVEL 1;
 COMP "led[7]" LOCATE = SITE "P123" LEVEL 1;
 COMP "avr_tx" LOCATE = SITE "P55" LEVEL 1;
+COMP "st_seg[0]" LOCATE = SITE "P118" LEVEL 1;
+COMP "st_seg[1]" LOCATE = SITE "P114" LEVEL 1;
+COMP "st_seg[2]" LOCATE = SITE "P105" LEVEL 1;
+COMP "st_seg[3]" LOCATE = SITE "P102" LEVEL 1;
+COMP "st_seg[4]" LOCATE = SITE "P101" LEVEL 1;
+COMP "st_seg[5]" LOCATE = SITE "P117" LEVEL 1;
+COMP "st_seg[6]" LOCATE = SITE "P111" LEVEL 1;
+COMP "st_seg[7]" LOCATE = SITE "P104" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
-COMP "buttonup" LOCATE = SITE "P32" LEVEL 1;
+COMP "st_sel[0]" LOCATE = SITE "P112" LEVEL 1;
+COMP "st_sel[1]" LOCATE = SITE "P115" LEVEL 1;
+COMP "st_sel[2]" LOCATE = SITE "P116" LEVEL 1;
+COMP "st_sel[3]" LOCATE = SITE "P119" LEVEL 1;
+COMP "buttonup" LOCATE = SITE "P50" LEVEL 1;
 COMP "io_sel[10]" LOCATE = SITE "P22" LEVEL 1;
 COMP "io_sel[11]" LOCATE = SITE "P21" LEVEL 1;
 COMP "io_sel[12]" LOCATE = SITE "P30" LEVEL 1;
@@ -45,12 +57,79 @@ COMP "io_sel[13]" LOCATE = SITE "P29" LEVEL 1;
 COMP "io_sel[14]" LOCATE = SITE "P27" LEVEL 1;
 COMP "io_sel[15]" LOCATE = SITE "P26" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
+COMP "buttonright" LOCATE = SITE "P32" LEVEL 1;
 COMP "buttonleft" LOCATE = SITE "P34" LEVEL 1;
 COMP "buttondown" LOCATE = SITE "P40" LEVEL 1;
-TIMEGRP clk = BEL "addgame/reg_gen_0[5].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[5].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[5].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[5].L_reg/M_regs_q_3" BEL
+TIMEGRP clk = BEL "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
+        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
+        "step_seg/ctr/M_ctr_q_12" BEL "step_seg/ctr/M_ctr_q_13" BEL
+        "step_seg/ctr/M_ctr_q_14" BEL "step_seg/ctr/M_ctr_q_15" BEL
+        "step_seg/ctr/M_ctr_q_16" BEL "step_seg/ctr/M_ctr_q_17" BEL
+        "seg/ctr/M_ctr_q_2" BEL "seg/ctr/M_ctr_q_0" BEL "seg/ctr/M_ctr_q_1"
+        BEL "seg/ctr/M_ctr_q_5" BEL "seg/ctr/M_ctr_q_3" BEL
+        "seg/ctr/M_ctr_q_4" BEL "seg/ctr/M_ctr_q_6" BEL "seg/ctr/M_ctr_q_7"
+        BEL "seg/ctr/M_ctr_q_8" BEL "seg/ctr/M_ctr_q_9" BEL
+        "seg/ctr/M_ctr_q_10" BEL "seg/ctr/M_ctr_q_11" BEL
+        "addgame/reg_gen_0[8].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[8].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[8].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[8].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[0].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[0].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[0].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[0].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[15].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[15].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[15].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[15].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[15].L_reg/M_regs_q_4" BEL
+        "addgame/reg_gen_0[3].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[3].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[3].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[3].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[3].L_reg/M_regs_q_4" BEL
+        "addgame/edge_detectordown/M_last_q" BEL
+        "addgame/reg_gen_0[10].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[10].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[10].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[10].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[6].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[6].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[6].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[6].L_reg/M_regs_q_3" BEL
+        "addgame/dec_ctr/dctr_gen_0[3].dctr/M_val_q_3" BEL
+        "addgame/dec_ctr/dctr_gen_0[3].dctr/M_val_q_2" BEL
+        "addgame/dec_ctr/dctr_gen_0[3].dctr/M_val_q_1" BEL
+        "addgame/dec_ctr/dctr_gen_0[3].dctr/M_val_q_0" BEL
+        "addgame/dec_ctr/dctr_gen_0[2].dctr/M_val_q_3" BEL
+        "addgame/dec_ctr/dctr_gen_0[2].dctr/M_val_q_2" BEL
+        "addgame/dec_ctr/dctr_gen_0[2].dctr/M_val_q_1" BEL
+        "addgame/dec_ctr/dctr_gen_0[2].dctr/M_val_q_0" BEL
+        "addgame/dec_ctr/dctr_gen_0[1].dctr/M_val_q_3" BEL
+        "addgame/dec_ctr/dctr_gen_0[1].dctr/M_val_q_2" BEL
+        "addgame/dec_ctr/dctr_gen_0[1].dctr/M_val_q_1" BEL
+        "addgame/dec_ctr/dctr_gen_0[1].dctr/M_val_q_0" BEL
+        "addgame/dec_ctr/dctr_gen_0[0].dctr/M_val_q_3" BEL
+        "addgame/dec_ctr/dctr_gen_0[0].dctr/M_val_q_2" BEL
+        "addgame/dec_ctr/dctr_gen_0[0].dctr/M_val_q_1" BEL
+        "addgame/dec_ctr/dctr_gen_0[0].dctr/M_val_q_0" BEL
+        "addgame/reg_gen_0[13].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[13].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[13].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[13].L_reg/M_regs_q_3" BEL
+        "addgame/edge_detectoruleft/M_last_q" BEL
+        "addgame/reg_gen_0[9].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[9].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[9].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[9].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[1].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[1].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[1].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[1].L_reg/M_regs_q_3" BEL
+        "addgame/M_addtozero_q_FSM_FFd1" BEL "addgame/M_addtozero_q_FSM_FFd2"
+        BEL "addgame/M_addtozero_q_FSM_FFd3" BEL
+        "addgame/M_addtozero_q_FSM_FFd4" BEL "addgame/M_addtozero_q_FSM_FFd5"
+        BEL "addgame/M_addtozero_q_FSM_FFd6" BEL
         "addgame/button_conddown/M_ctr_q_19" BEL
         "addgame/button_conddown/M_ctr_q_18" BEL
         "addgame/button_conddown/M_ctr_q_17" BEL
@@ -73,87 +152,10 @@ TIMEGRP clk = BEL "addgame/reg_gen_0[5].L_reg/M_regs_q_0" BEL
         "addgame/button_conddown/M_ctr_q_0" BEL
         "addgame/button_conddown/sync/M_pipe_q_1" BEL
         "addgame/button_conddown/sync/Mshreg_M_pipe_q_1" BEL
-        "addgame/reg_gen_0[0].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[0].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[0].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[0].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[12].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[12].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[12].L_reg/M_regs_q_3" BEL
-        "addgame/edge_detectordown/M_last_q" BEL
-        "addgame/reg_gen_0[7].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[7].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[7].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[7].L_reg/M_regs_q_3" BEL
-        "addgame/button_condright/M_ctr_q_19" BEL
-        "addgame/button_condright/M_ctr_q_18" BEL
-        "addgame/button_condright/M_ctr_q_17" BEL
-        "addgame/button_condright/M_ctr_q_16" BEL
-        "addgame/button_condright/M_ctr_q_15" BEL
-        "addgame/button_condright/M_ctr_q_14" BEL
-        "addgame/button_condright/M_ctr_q_13" BEL
-        "addgame/button_condright/M_ctr_q_12" BEL
-        "addgame/button_condright/M_ctr_q_11" BEL
-        "addgame/button_condright/M_ctr_q_10" BEL
-        "addgame/button_condright/M_ctr_q_9" BEL
-        "addgame/button_condright/M_ctr_q_8" BEL
-        "addgame/button_condright/M_ctr_q_7" BEL
-        "addgame/button_condright/M_ctr_q_6" BEL
-        "addgame/button_condright/M_ctr_q_5" BEL
-        "addgame/button_condright/M_ctr_q_4" BEL
-        "addgame/button_condright/M_ctr_q_3" BEL
-        "addgame/button_condright/M_ctr_q_2" BEL
-        "addgame/button_condright/M_ctr_q_1" BEL
-        "addgame/button_condright/M_ctr_q_0" BEL
-        "addgame/button_condright/sync/M_pipe_q_1" BEL
-        "addgame/button_condright/sync/Mshreg_M_pipe_q_1" BEL
-        "addgame/reg_gen_0[2].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[2].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[2].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[2].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[14].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[14].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[14].L_reg/M_regs_q_3" BEL
-        "addgame/edge_detectorup/M_last_q" BEL
-        "addgame/reg_gen_0[9].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[9].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[9].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[4].L_reg/M_regs_q_0" BEL
         "addgame/reg_gen_0[4].L_reg/M_regs_q_1" BEL
         "addgame/reg_gen_0[4].L_reg/M_regs_q_2" BEL
         "addgame/reg_gen_0[4].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[11].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[11].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[11].L_reg/M_regs_q_3" BEL
-        "addgame/M_addtozero_q_FSM_FFd1" BEL "addgame/M_addtozero_q_FSM_FFd2"
-        BEL "addgame/M_addtozero_q_FSM_FFd3" BEL
-        "addgame/reg_position/M_regs_q_0" BEL
-        "addgame/reg_position/M_regs_q_1" BEL
-        "addgame/reg_position/M_regs_q_2" BEL
-        "addgame/reg_position/M_regs_q_3" BEL
-        "addgame/reg_position/M_regs_q_1_1" BEL
-        "addgame/reg_position/M_regs_q_0_1" BEL
-        "addgame/reg_position/M_regs_q_0_2" BEL
-        "addgame/reg_position/M_regs_q_3_1" BEL
-        "addgame/reg_position/M_regs_q_2_1" BEL
-        "addgame/reg_position/M_regs_q_0_3" BEL
-        "addgame/reg_position/M_regs_q_2_2" BEL
-        "addgame/reg_position/M_regs_q_3_2" BEL
-        "addgame/reg_gen_0[6].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[6].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[6].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[1].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[1].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[1].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[1].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[13].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[13].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[13].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[13].L_reg/M_regs_q_3" BEL
-        "addgame/edge_detectoruleft/M_last_q" BEL
-        "addgame/reg_gen_0[8].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[8].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[8].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[8].L_reg/M_regs_q_3" BEL
         "addgame/button_condup/M_ctr_q_19" BEL
         "addgame/button_condup/M_ctr_q_18" BEL
         "addgame/button_condup/M_ctr_q_17" BEL
@@ -176,17 +178,19 @@ TIMEGRP clk = BEL "addgame/reg_gen_0[5].L_reg/M_regs_q_0" BEL
         "addgame/button_condup/M_ctr_q_0" BEL
         "addgame/button_condup/sync/M_pipe_q_1" BEL
         "addgame/button_condup/sync/Mshreg_M_pipe_q_1" BEL
-        "addgame/reg_gen_0[3].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[3].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[3].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[15].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[15].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[15].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[15].L_reg/M_regs_q_3" BEL
-        "addgame/reg_gen_0[10].L_reg/M_regs_q_0" BEL
-        "addgame/reg_gen_0[10].L_reg/M_regs_q_1" BEL
-        "addgame/reg_gen_0[10].L_reg/M_regs_q_2" BEL
-        "addgame/reg_gen_0[10].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[11].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[11].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[11].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[11].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[7].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[7].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[7].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[7].L_reg/M_regs_q_3" BEL
+        "addgame/edge_detectorright/M_last_q" BEL
+        "addgame/reg_gen_0[14].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[14].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[14].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[14].L_reg/M_regs_q_3" BEL
         "addgame/button_condleft/M_ctr_q_19" BEL
         "addgame/button_condleft/M_ctr_q_18" BEL
         "addgame/button_condleft/M_ctr_q_17" BEL
@@ -209,14 +213,63 @@ TIMEGRP clk = BEL "addgame/reg_gen_0[5].L_reg/M_regs_q_0" BEL
         "addgame/button_condleft/M_ctr_q_0" BEL
         "addgame/button_condleft/sync/M_pipe_q_1" BEL
         "addgame/button_condleft/sync/Mshreg_M_pipe_q_1" BEL
-        "addgame/edge_detectorright/M_last_q" BEL "clk_BUFGP/BUFG" BEL
-        "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
-        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
-        "seg/ctr/M_ctr_q_0" BEL "seg/ctr/M_ctr_q_1" BEL "seg/ctr/M_ctr_q_2"
-        BEL "seg/ctr/M_ctr_q_3" BEL "seg/ctr/M_ctr_q_4" BEL
-        "seg/ctr/M_ctr_q_5" BEL "seg/ctr/M_ctr_q_6" BEL "seg/ctr/M_ctr_q_7"
-        BEL "seg/ctr/M_ctr_q_11" BEL "seg/ctr/M_ctr_q_9" BEL
-        "seg/ctr/M_ctr_q_10" BEL "seg/ctr/M_ctr_q_8";
+        "addgame/reg_position/M_regs_q_0" BEL
+        "addgame/reg_position/M_regs_q_1" BEL
+        "addgame/reg_position/M_regs_q_2" BEL
+        "addgame/reg_position/M_regs_q_3" BEL
+        "addgame/reg_position/M_regs_q_1_1" BEL
+        "addgame/reg_position/M_regs_q_0_1" BEL
+        "addgame/reg_position/M_regs_q_3_1" BEL
+        "addgame/reg_position/M_regs_q_2_1" BEL
+        "addgame/reg_position/M_regs_q_2_2" BEL
+        "addgame/reg_position/M_regs_q_3_2" BEL
+        "addgame/reg_position/M_regs_q_1_2" BEL
+        "addgame/reg_position/M_regs_q_1_3" BEL
+        "addgame/reg_position/M_regs_q_1_4" BEL
+        "addgame/reg_position/M_regs_q_0_2" BEL
+        "addgame/reg_position/M_regs_q_0_3" BEL
+        "addgame/reg_position/M_regs_q_0_4" BEL
+        "addgame/reg_position/M_regs_q_0_5" BEL
+        "addgame/reg_position/M_regs_q_1_5" BEL
+        "addgame/reg_position/M_regs_q_1_6" BEL
+        "addgame/reg_gen_0[2].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[2].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[2].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[2].L_reg/M_regs_q_3" BEL
+        "addgame/button_condright/M_ctr_q_19" BEL
+        "addgame/button_condright/M_ctr_q_18" BEL
+        "addgame/button_condright/M_ctr_q_17" BEL
+        "addgame/button_condright/M_ctr_q_16" BEL
+        "addgame/button_condright/M_ctr_q_15" BEL
+        "addgame/button_condright/M_ctr_q_14" BEL
+        "addgame/button_condright/M_ctr_q_13" BEL
+        "addgame/button_condright/M_ctr_q_12" BEL
+        "addgame/button_condright/M_ctr_q_11" BEL
+        "addgame/button_condright/M_ctr_q_10" BEL
+        "addgame/button_condright/M_ctr_q_9" BEL
+        "addgame/button_condright/M_ctr_q_8" BEL
+        "addgame/button_condright/M_ctr_q_7" BEL
+        "addgame/button_condright/M_ctr_q_6" BEL
+        "addgame/button_condright/M_ctr_q_5" BEL
+        "addgame/button_condright/M_ctr_q_4" BEL
+        "addgame/button_condright/M_ctr_q_3" BEL
+        "addgame/button_condright/M_ctr_q_2" BEL
+        "addgame/button_condright/M_ctr_q_1" BEL
+        "addgame/button_condright/M_ctr_q_0" BEL
+        "addgame/button_condright/sync/M_pipe_q_1" BEL
+        "addgame/button_condright/sync/Mshreg_M_pipe_q_1" BEL
+        "addgame/edge_detectorup/M_last_q" BEL
+        "addgame/reg_gen_0[5].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[5].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[5].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[5].L_reg/M_regs_q_3" BEL
+        "addgame/reg_gen_0[12].L_reg/M_regs_q_0" BEL
+        "addgame/reg_gen_0[12].L_reg/M_regs_q_1" BEL
+        "addgame/reg_gen_0[12].L_reg/M_regs_q_2" BEL
+        "addgame/reg_gen_0[12].L_reg/M_regs_q_3" BEL
+        "addgame/zeronumber/M_regs_q_0" BEL "addgame/zeronumber/M_regs_q_1"
+        BEL "addgame/zeronumber/M_regs_q_2" BEL
+        "addgame/zeronumber/M_regs_q_3" BEL "clk_BUFGP/BUFG";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 SCHEMATIC END;
 

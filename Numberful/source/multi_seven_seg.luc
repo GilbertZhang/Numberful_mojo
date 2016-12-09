@@ -4,8 +4,8 @@ module multi_seven_seg #(
   )(
     input clk,                // clock
     input rst,                // reset
-    input values [DIGITS][4], // values to show
-    output seg [7],           // LED segments
+    input values [DIGITS][5], // values to show
+    output seg [8],           // LED segments
     output sel [DIGITS]       // Digit select
   ) {
  

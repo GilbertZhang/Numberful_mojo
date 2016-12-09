@@ -6,20 +6,20 @@
 
 /*
    Parameters:
-     WIDTH = 4
+     WIDTH = 16
 */
-module register_10 (
+module register_12 (
     input clk,
     input en,
     input rst,
-    input [3:0] data,
-    output reg [3:0] out
+    input [15:0] data,
+    output reg [15:0] out
   );
   
-  localparam WIDTH = 3'h4;
+  localparam WIDTH = 5'h10;
   
   
-  reg [3:0] M_regs_d, M_regs_q = 1'h0;
+  reg [15:0] M_regs_d, M_regs_q = 1'h0;
   
   always @* begin
     M_regs_d = M_regs_q;
